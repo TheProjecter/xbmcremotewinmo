@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XBMC_Remote</RootNamespace>
-    <AssemblyName>XBMC Remote</AssemblyName>
+    <AssemblyName>XBMC Remote for WinMo</AssemblyName>
     <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PlatformFamilyName>PocketPC</PlatformFamilyName>
     <PlatformID>2AC76CE7-3E8C-402d-85E7-AE9C98D7B6BA</PlatformID>
@@ -18,6 +18,7 @@
     <NativePlatformName>Windows Mobile 6.5.3 Professional DTK</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
+    <StartupObject>XBMC_Remote.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,7 +56,7 @@
     <Reference Include="mscorlib" />
     <Reference Include="SenseSDK.Resources.QVGA, Version=1.38.3809.23995, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Sense UI SDK\Bin\SenseSDK.Resources.QVGA.dll</HintPath>
+      <HintPath>..\..\..\..\SenseSDK.v1.39\Sense UI SDK\Bin\SenseSDK.Resources.QVGA.dll</HintPath>
     </Reference>
     <Reference Include="SenseSDKExtended, Version=1.0.730.883, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -63,7 +64,7 @@
     </Reference>
     <Reference Include="StedySoft.SenseSDK, Version=1.39.3814.15624, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Sense UI SDK\Bin\StedySoft.SenseSDK.dll</HintPath>
+      <HintPath>..\..\..\..\SenseSDK.v1.39\Sense UI SDK\Bin\StedySoft.SenseSDK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -75,59 +76,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackgroundThread.cs" />
-    <Compile Include="AlbumForm.cs">
+    <Compile Include="Forms\AlbumForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlbumForm.Designer.cs">
+    <Compile Include="Forms\AlbumForm.Designer.cs">
       <DependentUpon>AlbumForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SongForm.cs">
+    <Compile Include="Communication\XBMC.EventClient.cs" />
+    <Compile Include="Forms\SongForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SongForm.Designer.cs">
+    <Compile Include="Forms\SongForm.Designer.cs">
       <DependentUpon>SongForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomComponents.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="MovieForm.cs">
+    <Compile Include="Forms\MovieForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MovieForm.Designer.cs">
+    <Compile Include="Forms\MovieForm.Designer.cs">
       <DependentUpon>MovieForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="Forms\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="Forms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="NowPlayingForm.cs">
+    <Compile Include="Forms\NowPlayingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NowPlayingForm.Designer.cs">
+    <Compile Include="Forms\NowPlayingForm.Designer.cs">
       <DependentUpon>NowPlayingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="SongForm.resx">
+    <EmbeddedResource Include="Forms\SongForm.resx">
       <DependentUpon>SongForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="MovieForm.resx">
+    <EmbeddedResource Include="Forms\MovieForm.resx">
       <DependentUpon>MovieForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="AlbumForm.resx">
+    <EmbeddedResource Include="Forms\AlbumForm.resx">
       <DependentUpon>AlbumForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="NowPlayingForm.resx">
+    <EmbeddedResource Include="Forms\NowPlayingForm.resx">
       <DependentUpon>NowPlayingForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -136,11 +134,11 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemoteForm.resx">
+    <EmbeddedResource Include="Forms\RemoteForm.resx">
       <DependentUpon>RemoteForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings.resx">
+    <EmbeddedResource Include="Forms\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -149,20 +147,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RemoteForm.cs">
+    <Compile Include="Forms\RemoteForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RemoteForm.Designer.cs">
+    <Compile Include="Forms\RemoteForm.Designer.cs">
       <DependentUpon>RemoteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs">
+    <Compile Include="Forms\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings.Designer.cs">
+    <Compile Include="Forms\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="XBMC.Library\XBMC.EventClient.cs">
-      <SubType>Code</SubType>
+    <Compile Include="System\BackgroundThread.cs" />
+    <Compile Include="System\CustomComponents.cs">
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
