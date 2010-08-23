@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBMC", "XBMC Remote\XBMC.csproj", "{63C75F44-46D5-41E8-916E-F125E7CDE3AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XbmcJsonCompact", "..\XbmcJson\XbmcJsonCompact.csproj", "{B2616CEC-DF37-4136-94CF-4B7F02C12323}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63C75F44-46D5-41E8-916E-F125E7CDE3AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63C75F44-46D5-41E8-916E-F125E7CDE3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63C75F44-46D5-41E8-916E-F125E7CDE3AA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{63C75F44-46D5-41E8-916E-F125E7CDE3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63C75F44-46D5-41E8-916E-F125E7CDE3AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63C75F44-46D5-41E8-916E-F125E7CDE3AA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B2616CEC-DF37-4136-94CF-4B7F02C12323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2616CEC-DF37-4136-94CF-4B7F02C12323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2616CEC-DF37-4136-94CF-4B7F02C12323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2616CEC-DF37-4136-94CF-4B7F02C12323}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
