@@ -1,0 +1,26 @@
+C:\Documents and Settings\Administrator\Local Settings\Application Data\Temporary Projects\XBMC Remote\bin\Debug\XBMC Remote.exe
+C:\Documents and Settings\Administrator\Local Settings\Application Data\Temporary Projects\XBMC Remote\bin\Debug\XBMC Remote.pdb
+C:\Documents and Settings\Administrator\Local Settings\Application Data\Temporary Projects\XBMC Remote\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\Local Settings\Application Data\Temporary Projects\XBMC Remote\obj\Debug\XBMC_Remote.MainForm.resources
+C:\Documents and Settings\Administrator\Local Settings\Application Data\Temporary Projects\XBMC Remote\obj\Debug\XBMC_Remote.Properties.Resources.resources
+C:\Documents and Settings\Administrator\Local Settings\Application Data\Temporary Projects\XBMC Remote\obj\Debug\XBMC_Remote.SettingsForm.resources
+C:\Documents and Settings\Administrator\Local Settings\Application Data\Temporary Projects\XBMC Remote\obj\Debug\XBMC Remote.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\Local Settings\Application Data\Temporary Projects\XBMC Remote\obj\Debug\XBMC Remote.exe
+C:\Documents and Settings\Administrator\Local Settings\Application Data\Temporary Projects\XBMC Remote\obj\Debug\XBMC Remote.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\bin\Debug\XBMC Remote.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\bin\Debug\XBMC Remote.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC_Remote.MainForm.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC_Remote.Properties.Resources.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC_Remote.SettingsForm.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC Remote.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC Remote.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC Remote.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\bin\Debug\Microsoft.WindowsMobile.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\bin\Debug\Microsoft.WindowsMobile.Forms.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\bin\Debug\Microsoft.WindowsMobile.Status.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\bin\Debug\Microsoft.WindowsMobile.PocketOutlook.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\bin\Debug\Microsoft.WindowsMobile.PocketOutlook.xml
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\bin\Debug\Microsoft.WindowsMobile.xml
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\bin\Debug\Microsoft.WindowsMobile.Forms.xml
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\bin\Debug\Microsoft.WindowsMobile.Status.xml

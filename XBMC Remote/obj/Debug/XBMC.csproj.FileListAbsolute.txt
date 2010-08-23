@@ -1,0 +1,67 @@
+C:\Users\Johnny\Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Johnny\Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC_Remote.MainForm.resources
+C:\Users\Johnny\Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC_Remote.MovieForm.resources
+C:\Users\Johnny\Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC_Remote.NowPlayingForm.resources
+C:\Users\Johnny\Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC_Remote.Properties.Resources.resources
+C:\Users\Johnny\Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC_Remote.RemoteForm.resources
+C:\Users\Johnny\Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC_Remote.SettingsForm.resources
+C:\Users\Johnny\Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC.csproj.GenerateResource.Cache
+C:\Users\Johnny\Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC Remote.exe
+C:\Users\Johnny\Documents\Visual Studio 2008\Projects\XBMC Remote\XBMC Remote\obj\Debug\XBMC Remote.pdb
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.MainForm.resources
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.NowPlayingForm.resources
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.Properties.Resources.resources
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.RemoteForm.resources
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.SettingsForm.resources
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC.csproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC Remote.exe
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC Remote.pdb
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\bin\Debug\XBMC Remote.exe
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\bin\Debug\XBMC Remote.pdb
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\bin\Debug\XbmcJsonCompact.dll
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\bin\Debug\Newtonsoft.Json.Compact.dll
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\bin\Debug\XbmcJsonCompact.pdb
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.MovieForm.resources
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\bin\Debug\SenseSDKExtended.dll
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\bin\Debug\StedySoft.SenseSDK.dll
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\bin\Debug\SenseSDK.Resources.VGA.dll
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\xbmcremotewinmo\XBMC Remote\bin\Debug\SenseSDK.Resources.QVGA.dll
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.MovieForm.resources
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.MainForm.resources
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.NowPlayingForm.resources
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.Properties.Resources.resources
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.RemoteForm.resources
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.SettingsForm.resources
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC.csproj.GenerateResource.Cache
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC Remote.exe
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC Remote.pdb
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\bin\Debug\XBMC Remote.exe
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\bin\Debug\XBMC Remote.pdb
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\bin\Debug\SenseSDK.Resources.QVGA.dll
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\bin\Debug\StedySoft.SenseSDK.dll
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\bin\Debug\XbmcJsonCompact.dll
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\bin\Debug\Newtonsoft.Json.Compact.dll
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\bin\Debug\SenseSDK.Resources.VGA.dll
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\bin\Debug\XbmcJsonCompact.pdb
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.SongForm.resources
+C:\Users\Johnny\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.AlbumForm.resources
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\bin\Debug\XBMC Remote.exe
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\bin\Debug\XBMC Remote.pdb
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\bin\Debug\SenseSDKExtended.dll
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\bin\Debug\XbmcJsonCompact.dll
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\bin\Debug\Newtonsoft.Json.Compact.dll
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\bin\Debug\XbmcJsonCompact.pdb
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.SongForm.resources
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.MovieForm.resources
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.MainForm.resources
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.AlbumForm.resources
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.NowPlayingForm.resources
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.Properties.Resources.resources
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.RemoteForm.resources
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC_Remote.SettingsForm.resources
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC.csproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC Remote.exe
+C:\Users\Administrator\Documents\My Dropbox\development\xbmcremotewinmo\XBMC Remote\obj\Debug\XBMC Remote.pdb
