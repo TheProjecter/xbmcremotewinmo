@@ -56,7 +56,7 @@ namespace XBMC_Remote {
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
-            Artists = JsonClient.AudioLibrary.GetArtists("artist");
+            Artists = JsonClient.AudioLibrary.GetArtists();//("artist");
 
             // add SensePanelItem(s) w/thumbnail image
             //this.senseListCtrl.AddItem(new StedySoft.SenseSDK.SensePanelDividerItem("DividerItem" + (this._itmCounter++).ToString("0#"), "Panel Items with Thumbnail"));

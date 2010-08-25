@@ -60,7 +60,7 @@ namespace XBMC_Remote {
             if (Artist != -1)
                 Albums = JsonClient.AudioLibrary.GetAlbumsByArtist(Artist);
             else
-                Albums = JsonClient.AudioLibrary.GetAlbums(new string[] { "artist" }, "label");
+                Albums = JsonClient.AudioLibrary.GetAlbums(new string[] { "artist" });//, "label");
 
             // add SensePanelItem(s) w/thumbnail image
             //this.senseListCtrl.AddItem(new StedySoft.SenseSDK.SensePanelDividerItem("DividerItem" + (this._itmCounter++).ToString("0#"), "Panel Items with Thumbnail"));

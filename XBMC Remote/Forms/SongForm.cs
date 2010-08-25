@@ -61,13 +61,15 @@ namespace XBMC_Remote {
             this.senseListCtrl.BeginUpdate();
 
             if (artistId != -1)
+            {
                 if (albumId == -1)
                     Songs = JsonClient.AudioLibrary.GetSongsByArtistAllFields(artistId);
-                else
-                Songs = JsonClient.AudioLibrary.GetSongsByArtistAndAlbumAllFields(artistId, albumId);
+                //else
+                //Songs = JsonClient.AudioLibrary.GetSongsByArtistAndAlbumAllFields(artistId, albumId);
+            }
             else
             {
-                    Songs = JsonClient.AudioLibrary.GetSongsByAlbumAllFields(albumId);
+                Songs = JsonClient.AudioLibrary.GetSongsByAlbumAllFields(albumId);
             }
 
             foreach (Song s in Songs)

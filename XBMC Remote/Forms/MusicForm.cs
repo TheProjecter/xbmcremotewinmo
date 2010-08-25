@@ -30,11 +30,6 @@ namespace XBMC_Remote {
         }
         #endregion
 
-        #region Private Methods
-        private bool _isVGA() {
-            return StedySoft.SenseSDK.DrawingCE.Resolution.ScreenIsVGA;
-        }
-        #endregion
 
         #region Events
         private void frmListDemo_Load(object sender, EventArgs e) {

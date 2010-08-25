@@ -56,15 +56,15 @@
     <Reference Include="mscorlib" />
     <Reference Include="SenseSDK.Resources.QVGA, Version=1.38.3809.23995, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\SenseSDK.v1.39\Sense UI SDK\Bin\SenseSDK.Resources.QVGA.dll</HintPath>
+      <HintPath>..\..\..\..\Sense UI SDK\Bin\SenseSDK.Resources.QVGA.dll</HintPath>
     </Reference>
     <Reference Include="SenseSDKExtended, Version=1.0.730.883, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\SenseSDK.v1.39\Sense UI SDK\Bin\SenseSDKExtended.dll</HintPath>
+      <HintPath>..\..\..\..\Sense UI SDK\v0.1\Library\SenseSDKExtended.dll</HintPath>
     </Reference>
     <Reference Include="StedySoft.SenseSDK, Version=1.39.3814.15624, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\SenseSDK.v1.39\Sense UI SDK\Bin\StedySoft.SenseSDK.dll</HintPath>
+      <HintPath>..\..\..\..\Sense UI SDK\Bin\StedySoft.SenseSDK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -149,11 +149,6 @@
       <DependentUpon>NowPlayingForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\RemoteForm.resx">
       <DependentUpon>RemoteForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -162,11 +157,6 @@
       <DependentUpon>Settings.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Forms\RemoteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,10 +169,38 @@
     <Compile Include="Forms\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="System\BackgroundThread.cs" />
     <Compile Include="System\CustomComponents.cs">
       <SubType>Component</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\icon_home_movies.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\icon_home_music.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\icon_home_pictures.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\icon_home_now.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\icon_home_remote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\icon_home_tv.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\XbmcJson\XbmcJsonCompact.csproj">

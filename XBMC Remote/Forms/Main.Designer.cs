@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
@@ -38,16 +37,11 @@
             this.menuConnect = new System.Windows.Forms.MenuItem();
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuExit = new System.Windows.Forms.MenuItem();
-            this.remoteBut = new System.Windows.Forms.PictureBox();
-            this.playingBut = new System.Windows.Forms.PictureBox();
-            this.moviesBut = new System.Windows.Forms.PictureBox();
-            this.musicBut = new System.Windows.Forms.PictureBox();
-            this.pictureBut = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.mnuDateTime = new System.Windows.Forms.MenuItem();
+            this.senseHeaderCtrl = new StedySoft.SenseSDK.SenseHeaderControl();
+            this.mnuControls = new System.Windows.Forms.MenuItem();
+            this.menuBack = new System.Windows.Forms.MenuItem();
+            this.senseListCtrl = new StedySoft.SenseSDK.SenseListControl();
             this.SuspendLayout();
             // 
             // menuItem4
@@ -92,89 +86,42 @@
             this.menuExit.Text = "Exit";
             this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
             // 
-            // remoteBut
+            // mnuDateTime
             // 
-            this.remoteBut.Image = ((System.Drawing.Image)(resources.GetObject("remoteBut.Image")));
-            this.remoteBut.Location = new System.Drawing.Point(6, 405);
-            this.remoteBut.Name = "remoteBut";
-            this.remoteBut.Size = new System.Drawing.Size(128, 128);
-            this.remoteBut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.remoteBut.Click += new System.EventHandler(this.remoteBut_Click);
+            this.mnuDateTime.Text = "";
             // 
-            // playingBut
+            // senseHeaderCtrl
             // 
-            this.playingBut.Image = ((System.Drawing.Image)(resources.GetObject("playingBut.Image")));
-            this.playingBut.Location = new System.Drawing.Point(6, 539);
-            this.playingBut.Name = "playingBut";
-            this.playingBut.Size = new System.Drawing.Size(128, 128);
-            this.playingBut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.playingBut.Click += new System.EventHandler(this.playingBut_Click);
+            this.senseHeaderCtrl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.senseHeaderCtrl.Location = new System.Drawing.Point(0, 0);
+            this.senseHeaderCtrl.Name = "senseHeaderCtrl";
+            this.senseHeaderCtrl.Size = new System.Drawing.Size(480, 25);
+            this.senseHeaderCtrl.TabIndex = 2;
+            this.senseHeaderCtrl.Text = "Main";
             // 
-            // moviesBut
+            // mnuControls
             // 
-            this.moviesBut.Image = ((System.Drawing.Image)(resources.GetObject("moviesBut.Image")));
-            this.moviesBut.Location = new System.Drawing.Point(6, 3);
-            this.moviesBut.Name = "moviesBut";
-            this.moviesBut.Size = new System.Drawing.Size(128, 128);
-            this.moviesBut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.moviesBut.Click += new System.EventHandler(this.moviesBut_Click);
+            this.mnuControls.Text = "";
             // 
-            // musicBut
+            // menuBack
             // 
-            this.musicBut.Image = ((System.Drawing.Image)(resources.GetObject("musicBut.Image")));
-            this.musicBut.Location = new System.Drawing.Point(6, 137);
-            this.musicBut.Name = "musicBut";
-            this.musicBut.Size = new System.Drawing.Size(128, 128);
-            this.musicBut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.musicBut.Click += new System.EventHandler(this.musicBut_Click);
+            this.menuBack.Text = "Back";
             // 
-            // pictureBut
+            // senseListCtrl
             // 
-            this.pictureBut.Image = ((System.Drawing.Image)(resources.GetObject("pictureBut.Image")));
-            this.pictureBut.Location = new System.Drawing.Point(6, 271);
-            this.pictureBut.Name = "pictureBut";
-            this.pictureBut.Size = new System.Drawing.Size(128, 128);
-            this.pictureBut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(146, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(328, 64);
-            this.label1.Text = "Movies";
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(146, 171);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(328, 64);
-            this.label2.Text = "Music";
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(146, 305);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(328, 62);
-            this.label3.Text = "Pictures";
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(146, 439);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(328, 62);
-            this.label4.Text = "Remote";
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(146, 565);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(328, 62);
-            this.label5.Text = "Playing";
+            this.senseListCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.senseListCtrl.FocusedItem = null;
+            this.senseListCtrl.IsSecondaryScrollType = false;
+            this.senseListCtrl.Location = new System.Drawing.Point(0, 25);
+            this.senseListCtrl.MinimumMovement = 15;
+            this.senseListCtrl.Name = "senseListCtrl";
+            this.senseListCtrl.ShowScrollIndicator = true;
+            this.senseListCtrl.Size = new System.Drawing.Size(480, 723);
+            this.senseListCtrl.Springback = 0.35F;
+            this.senseListCtrl.TabIndex = 3;
+            this.senseListCtrl.ThreadSleep = 100;
+            this.senseListCtrl.TopIndex = 0;
+            this.senseListCtrl.Velocity = 0.9F;
             // 
             // MainForm
             // 
@@ -182,23 +129,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(480, 696);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBut);
-            this.Controls.Add(this.musicBut);
-            this.Controls.Add(this.moviesBut);
-            this.Controls.Add(this.playingBut);
-            this.Controls.Add(this.remoteBut);
+            this.ClientSize = new System.Drawing.Size(480, 748);
+            this.Controls.Add(this.senseListCtrl);
+            this.Controls.Add(this.senseHeaderCtrl);
             this.KeyPreview = true;
-            this.Location = new System.Drawing.Point(0, 52);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu1;
             this.Name = "MainForm";
             this.Text = "XBMC Remote";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Closed += new System.EventHandler(this.MainForm_Closed);
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.MainForm_Closing);
             this.ResumeLayout(false);
 
         }
@@ -214,16 +156,11 @@
         protected System.Windows.Forms.MenuItem menuConnect;
         protected System.Windows.Forms.MainMenu mainMenu1;
         protected System.Windows.Forms.MenuItem menuExit;
-        private System.Windows.Forms.PictureBox remoteBut;
-        private System.Windows.Forms.PictureBox playingBut;
-        private System.Windows.Forms.PictureBox moviesBut;
-        private System.Windows.Forms.PictureBox musicBut;
-        private System.Windows.Forms.PictureBox pictureBut;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.MenuItem mnuDateTime;
+        private StedySoft.SenseSDK.SenseHeaderControl senseHeaderCtrl;
+        private System.Windows.Forms.MenuItem mnuControls;
+        private System.Windows.Forms.MenuItem menuBack;
+        private StedySoft.SenseSDK.SenseListControl senseListCtrl;
 
 
 
