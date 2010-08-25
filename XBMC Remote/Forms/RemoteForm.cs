@@ -30,8 +30,6 @@ namespace XBMC_Remote
         private void InitializeCommunication()
         {
             RemoteClient.Connect(IpAddress).ToString();
-            MessageBox.Show(RemoteClient.Connected.ToString());
-            RemoteClient.SendHelo("Hai!");
         }
 
         private void butUp_Click(object sender, EventArgs e)
@@ -112,6 +110,11 @@ namespace XBMC_Remote
         private void butPause_Click(object sender, EventArgs e)
         {
             RemoteClient.SendButton("pause", "R1", ButtonFlagsType.BTN_DOWN | ButtonFlagsType.BTN_NO_REPEAT);
+        }
+
+        private void menuBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

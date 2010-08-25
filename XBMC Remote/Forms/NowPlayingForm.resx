@@ -947,6 +947,9 @@
         G6J/toQ+6bnIqkVWLbJqtj2wyKpFVs12n8quvDIX2v4/vF8q3DJxopwAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="mainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="$this.FormFactorShadowProperty" xml:space="preserve">
     <value>ppc_phone_480x800</value>
   </metadata>

@@ -842,6 +842,11 @@
             "AssemblyAsmDisplayName" = "8:XbmcJsonCompact, Version=1.0.0.0, Culture=neutral"
                 "ScatterAssemblies"
                 {
+                    "_684A2BDE44368AA7F241BC05B46DE883"
+                    {
+                    "Name" = "8:XbmcJsonCompact.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:XbmcJsonCompact.dll"
             "TargetName" = "8:"
@@ -1077,6 +1082,15 @@
                 {
                 }
             }
+            "{F6DFDB62-1DD1-498B-89B7-27BAC542EE5A}:_62A790235B174A23AEF7CD48BAB75389"
+            {
+            "Name" = "8:#1919"
+            "Condition" = "8:"
+            "Property" = "8:%CE17%"
+                "Folders"
+                {
+                }
+            }
         }
         "Product"
         {
@@ -1153,6 +1167,16 @@
         }
         "Shortcut"
         {
+            "{971D45E9-E38C-49AC-B36E-4C5BEA533350}:_B8AFDCF4FFD54D9BBDDF50101C578445"
+            {
+            "Name" = "8:XBMC Remote for WinMo Alpha"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "Target" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
+            "Folder" = "8:_62A790235B174A23AEF7CD48BAB75389"
+            "WorkingFolder" = "8:_0BD7CAF7F15A44A1BA3932B9A49C2378"
+            }
         }
     }
 }

@@ -18,9 +18,9 @@ namespace XBMC_Remote {
     public partial class SongForm : Form {
 
         #region Declarations
-        private bool _processEntireButton = false;
         private bool _buttonAnimation = true;
-        private int albumId;
+        private int albumId = -1;
+        private int artistId = -1;
         private XbmcConnection JsonClient;
         private List<Song> Songs;
         public string IpAddress;
@@ -32,19 +32,18 @@ namespace XBMC_Remote {
             albumId = albumid;
             InitializeComponent();
         }
+
+        public SongForm(int artistid, int albumid)
+        {
+            artistId = artistid;
+            albumId = albumid;
+            InitializeComponent();
+        }
         #endregion
 
         #region Private Methods
         private bool _isVGA() {
             return StedySoft.SenseSDK.DrawingCE.Resolution.ScreenIsVGA;
-        }
-
-        private IImage _getIImageFromResource(string resource) {
-            IImage iimg;
-            using (MemoryStream strm = (MemoryStream)Assembly.GetExecutingAssembly().GetManifestResourceStream("SenseSDKDemo.Resources." + resource + ".png")) {
-                (ImagingFactory.GetImaging()).CreateImageFromBuffer(strm.GetBuffer(), (uint)strm.Length, BufferDisposalFlag.BufferDisposalFlagNone, out iimg);
-            }
-            return iimg;
         }
         #endregion
 
@@ -61,16 +60,23 @@ namespace XBMC_Remote {
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
-            Songs = JsonClient.AudioLibrary.GetSongsByAlbum(albumId);
+            if (artistId != -1)
+                if (albumId == -1)
+                    Songs = JsonClient.AudioLibrary.GetSongsByArtistAllFields(artistId);
+                else
+                Songs = JsonClient.AudioLibrary.GetSongsByArtistAndAlbumAllFields(artistId, albumId);
+            else
+            {
+                    Songs = JsonClient.AudioLibrary.GetSongsByAlbumAllFields(albumId);
+            }
 
             foreach (Song s in Songs)
             {
-                StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem("PanelItem" + s.Label);
+                StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem(s._id.ToString());
                 itm.ButtonAnimation = this._buttonAnimation;
-                //IImage iimg = (IImage)JsonClient.Files.GetImageFromThumbnail(s.Thumbnail);
                 itm.PrimaryText = s.Label;
+                itm.SecondaryText = s.Artist;
                 itm.Tag = s._id;
-                //itm.IThumbnail = iimg;
                 itm.OnClick += new SensePanelItem.ClickEventHandler(OnClickGeneric);
                 this.senseListCtrl.AddItem(itm);
             }
@@ -116,6 +122,11 @@ namespace XBMC_Remote {
                 }
                 this._sipOffset = 0;
             }
+        }
+
+        private void menuBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         #endregion
     }

@@ -132,7 +132,7 @@ namespace XBMC_Remote
 
         private void musicBut_Click(object sender, EventArgs e)
         {
-            AlbumForm MusicForm = new AlbumForm();
+            MusicForm MusicForm = new MusicForm();
             MusicForm.IpAddress = IpAddress;
             MusicForm.Show();
         }

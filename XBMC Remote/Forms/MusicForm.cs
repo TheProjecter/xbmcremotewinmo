@@ -15,17 +15,17 @@ using StedySoft.SenseSDK.DrawingCE;
 using StedySoft.SenseSDK.Localization;
 
 namespace XBMC_Remote {
-    public partial class MovieForm : Form {
+    public partial class MusicForm : Form {
 
         #region Declarations
         private bool _buttonAnimation = true;
         private XbmcConnection JsonClient;
-        private List<Movie> Movies;
         public string IpAddress;
         #endregion
 
         #region Constructor
-        public MovieForm() {
+        public MusicForm()
+        {
             InitializeComponent();
         }
         #endregion
@@ -39,7 +39,7 @@ namespace XBMC_Remote {
         #region Events
         private void frmListDemo_Load(object sender, EventArgs e) {
             JsonClient = new XbmcConnection(IpAddress, 8080, "", "");
-            
+
             // set the list scroll fluidness
             this.senseListCtrl.MinimumMovement = 25;
             this.senseListCtrl.ThreadSleep = 75;
@@ -49,32 +49,44 @@ namespace XBMC_Remote {
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
-            Movies = JsonClient.VideoLibrary.GetMovies();
+            string[] list = {"By Genre", "By Artist", "By Album"};
 
-            // add SensePanelItem(s) w/thumbnail image
-            //this.senseListCtrl.AddItem(new StedySoft.SenseSDK.SensePanelDividerItem("DividerItem" + (this._itmCounter++).ToString("0#"), "Panel Items with Thumbnail"));
-            foreach (Movie m in Movies)
+            foreach (string Label in list)
             {
-                StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem(m._id.ToString());
-
+                StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem();
                 itm.ButtonAnimation = this._buttonAnimation;
-                itm.PrimaryText = m.Label;
-                itm.Tag = m._id;
-                //itm.Thumbnail = JsonClient.Files.GetImageFromThumbnail(m.Thumbnail);
+                itm.PrimaryText = Label;
                 itm.OnClick += new SensePanelItem.ClickEventHandler(OnClickGeneric);
                 this.senseListCtrl.AddItem(itm);
             }
 
             // we are done so turn on UI updating
             this.senseListCtrl.EndUpdate();
-
-            // enable Tap n' Hold & auto SIP for SensePanelTextboxItem(s)
-            SIP.Enable(this.senseListCtrl.Handle);
-            this.sip.EnabledChanged += new EventHandler(sip_EnabledChanged);
         }
 
         void OnClickGeneric(object Sender) {
-            JsonClient.Control.PlayMovie((int)(Sender as SensePanelItem).Tag); 
+
+            switch ((Sender as SensePanelItem).PrimaryText)
+            {
+                case "By Genre":
+                    {
+                    }
+                    break;
+                case "By Artist":
+                    {
+                        ArtistForm ArtistForm = new ArtistForm();
+                        ArtistForm.IpAddress = IpAddress;
+                        ArtistForm.Show();
+                    }
+                    break;
+                case "By Album":
+                    {
+                        AlbumForm AlbumForm = new AlbumForm();
+                        AlbumForm.IpAddress = IpAddress;
+                        AlbumForm.Show();
+                    }
+                    break;
+            }
         }
 
         void frmListDemo_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
@@ -83,29 +95,6 @@ namespace XBMC_Remote {
 
         void frmListDemo_Closed(object sender, System.EventArgs e) {
             this.senseListCtrl.Dispose();
-        }
-
-        private int _sipOffset = 0;
-        void sip_EnabledChanged(object sender, EventArgs e) {
-            if (this.sip.Enabled) {
-                SenseListControl.ISenseListItem IItem = this.senseListCtrl.FocusedItem;
-                Rectangle r = IItem.ClientRectangle;
-                r.Offset(0, this.senseListCtrl.Bounds.Top);
-                if (IItem is SensePanelTextboxItem) {
-                    if (r.Bottom > this.sip.VisibleDesktop.Height) {
-                        this._sipOffset = Math.Abs(this.sip.VisibleDesktop.Height - r.Bottom);
-                        this.senseListCtrl.ScrollList(-this._sipOffset);
-                        this.senseListCtrl.Invalidate();
-                    }
-                }
-            }
-            else {
-                if (!this._sipOffset.Equals(0)) {
-                    this.senseListCtrl.ScrollList(this._sipOffset);
-                    this.senseListCtrl.Invalidate();
-                }
-                this._sipOffset = 0;
-            }
         }
 
         private void menuBack_Click(object sender, EventArgs e)

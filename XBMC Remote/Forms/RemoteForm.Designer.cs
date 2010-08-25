@@ -31,17 +31,13 @@
             System.Windows.Forms.PictureBox butEnter;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoteForm));
             this.butFForward = new System.Windows.Forms.PictureBox();
-            this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.butPlay = new System.Windows.Forms.PictureBox();
             this.butFBackward = new System.Windows.Forms.PictureBox();
             this.butStop = new System.Windows.Forms.PictureBox();
-            this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.butPause = new System.Windows.Forms.PictureBox();
             this.butNext = new System.Windows.Forms.PictureBox();
-            this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.butPrev = new System.Windows.Forms.PictureBox();
             this.butLeftDown = new System.Windows.Forms.PictureBox();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.butRightDown = new System.Windows.Forms.PictureBox();
             this.butRightUp = new System.Windows.Forms.PictureBox();
             this.butLeftUp = new System.Windows.Forms.PictureBox();
@@ -49,13 +45,15 @@
             this.butUp = new XBMC_Remote.RepeatButton();
             this.butRight = new XBMC_Remote.RepeatButton();
             this.butLeft = new XBMC_Remote.RepeatButton();
+            this.mainMenu = new System.Windows.Forms.MainMenu();
+            this.menuBack = new System.Windows.Forms.MenuItem();
             butEnter = new System.Windows.Forms.PictureBox();
             this.SuspendLayout();
             // 
             // butEnter
             // 
             butEnter.Image = ((System.Drawing.Image)(resources.GetObject("butEnter.Image")));
-            butEnter.Location = new System.Drawing.Point(148, 464);
+            butEnter.Location = new System.Drawing.Point(148, 414);
             butEnter.Name = "butEnter";
             butEnter.Size = new System.Drawing.Size(184, 144);
             butEnter.Click += new System.EventHandler(this.butEnter_Click);
@@ -67,10 +65,6 @@
             this.butFForward.Name = "butFForward";
             this.butFForward.Size = new System.Drawing.Size(172, 112);
             this.butFForward.Click += new System.EventHandler(this.butFForward_Click);
-            // 
-            // menuItem3
-            // 
-            this.menuItem3.Text = "Options";
             // 
             // butPlay
             // 
@@ -96,10 +90,6 @@
             this.butStop.Size = new System.Drawing.Size(98, 120);
             this.butStop.Click += new System.EventHandler(this.butStop_Click);
             // 
-            // menuItem1
-            // 
-            this.menuItem1.Text = "Menu";
-            // 
             // butPause
             // 
             this.butPause.Image = ((System.Drawing.Image)(resources.GetObject("butPause.Image")));
@@ -116,10 +106,6 @@
             this.butNext.Size = new System.Drawing.Size(142, 120);
             this.butNext.Click += new System.EventHandler(this.butNext_Click);
             // 
-            // menuItem4
-            // 
-            this.menuItem4.Text = "Connect";
-            // 
             // butPrev
             // 
             this.butPrev.Image = ((System.Drawing.Image)(resources.GetObject("butPrev.Image")));
@@ -131,19 +117,15 @@
             // butLeftDown
             // 
             this.butLeftDown.Image = ((System.Drawing.Image)(resources.GetObject("butLeftDown.Image")));
-            this.butLeftDown.Location = new System.Drawing.Point(0, 608);
+            this.butLeftDown.Location = new System.Drawing.Point(0, 558);
             this.butLeftDown.Name = "butLeftDown";
             this.butLeftDown.Size = new System.Drawing.Size(148, 138);
             this.butLeftDown.Click += new System.EventHandler(this.butLeftDown_Click);
             // 
-            // menuItem5
-            // 
-            this.menuItem5.Text = "Exit";
-            // 
             // butRightDown
             // 
             this.butRightDown.Image = ((System.Drawing.Image)(resources.GetObject("butRightDown.Image")));
-            this.butRightDown.Location = new System.Drawing.Point(332, 608);
+            this.butRightDown.Location = new System.Drawing.Point(332, 558);
             this.butRightDown.Name = "butRightDown";
             this.butRightDown.Size = new System.Drawing.Size(148, 138);
             this.butRightDown.Click += new System.EventHandler(this.butBack_Click);
@@ -151,7 +133,7 @@
             // butRightUp
             // 
             this.butRightUp.Image = ((System.Drawing.Image)(resources.GetObject("butRightUp.Image")));
-            this.butRightUp.Location = new System.Drawing.Point(332, 340);
+            this.butRightUp.Location = new System.Drawing.Point(332, 290);
             this.butRightUp.Name = "butRightUp";
             this.butRightUp.Size = new System.Drawing.Size(148, 124);
             this.butRightUp.Click += new System.EventHandler(this.butRightUp_Click);
@@ -159,7 +141,7 @@
             // butLeftUp
             // 
             this.butLeftUp.Image = ((System.Drawing.Image)(resources.GetObject("butLeftUp.Image")));
-            this.butLeftUp.Location = new System.Drawing.Point(0, 340);
+            this.butLeftUp.Location = new System.Drawing.Point(0, 290);
             this.butLeftUp.Name = "butLeftUp";
             this.butLeftUp.Size = new System.Drawing.Size(148, 124);
             this.butLeftUp.Click += new System.EventHandler(this.butLeftUp_Click);
@@ -168,7 +150,7 @@
             // 
             this.butDown.Image = ((System.Drawing.Image)(resources.GetObject("butDown.Image")));
             this.butDown.InitialDelay = 300;
-            this.butDown.Location = new System.Drawing.Point(148, 608);
+            this.butDown.Location = new System.Drawing.Point(148, 558);
             this.butDown.Name = "butDown";
             this.butDown.RepeatDelay = 75;
             this.butDown.Size = new System.Drawing.Size(184, 138);
@@ -178,7 +160,7 @@
             // 
             this.butUp.Image = ((System.Drawing.Image)(resources.GetObject("butUp.Image")));
             this.butUp.InitialDelay = 300;
-            this.butUp.Location = new System.Drawing.Point(148, 340);
+            this.butUp.Location = new System.Drawing.Point(148, 290);
             this.butUp.Name = "butUp";
             this.butUp.RepeatDelay = 75;
             this.butUp.Size = new System.Drawing.Size(184, 124);
@@ -188,7 +170,7 @@
             // 
             this.butRight.Image = ((System.Drawing.Image)(resources.GetObject("butRight.Image")));
             this.butRight.InitialDelay = 300;
-            this.butRight.Location = new System.Drawing.Point(332, 464);
+            this.butRight.Location = new System.Drawing.Point(332, 414);
             this.butRight.Name = "butRight";
             this.butRight.RepeatDelay = 75;
             this.butRight.Size = new System.Drawing.Size(148, 144);
@@ -198,18 +180,27 @@
             // 
             this.butLeft.Image = ((System.Drawing.Image)(resources.GetObject("butLeft.Image")));
             this.butLeft.InitialDelay = 300;
-            this.butLeft.Location = new System.Drawing.Point(0, 464);
+            this.butLeft.Location = new System.Drawing.Point(0, 414);
             this.butLeft.Name = "butLeft";
             this.butLeft.RepeatDelay = 75;
             this.butLeft.Size = new System.Drawing.Size(148, 144);
             this.butLeft.Click += new System.EventHandler(this.butLeft_Click);
+            // 
+            // mainMenu
+            // 
+            this.mainMenu.MenuItems.Add(this.menuBack);
+            // 
+            // menuBack
+            // 
+            this.menuBack.Text = "Back";
+            this.menuBack.Click += new System.EventHandler(this.menuBack_Click);
             // 
             // RemoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
-            this.ClientSize = new System.Drawing.Size(480, 748);
+            this.ClientSize = new System.Drawing.Size(480, 696);
             this.Controls.Add(this.butFForward);
             this.Controls.Add(this.butPlay);
             this.Controls.Add(this.butFBackward);
@@ -228,6 +219,7 @@
             this.Controls.Add(this.butLeft);
             this.KeyPreview = true;
             this.Location = new System.Drawing.Point(0, 52);
+            this.Menu = this.mainMenu;
             this.Name = "RemoteForm";
             this.Text = "Remote Control";
             this.Load += new System.EventHandler(this.RemoteForm_Load);
@@ -238,17 +230,13 @@
         #endregion
 
         private System.Windows.Forms.PictureBox butFForward;
-        protected System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.PictureBox butPlay;
         private System.Windows.Forms.PictureBox butFBackward;
         private System.Windows.Forms.PictureBox butStop;
-        protected System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.PictureBox butPause;
         private System.Windows.Forms.PictureBox butNext;
-        protected System.Windows.Forms.MenuItem menuItem4;
         private System.Windows.Forms.PictureBox butPrev;
         private System.Windows.Forms.PictureBox butLeftDown;
-        protected System.Windows.Forms.MenuItem menuItem5;
         private System.Windows.Forms.PictureBox butRightDown;
         private System.Windows.Forms.PictureBox butRightUp;
         private System.Windows.Forms.PictureBox butLeftUp;
@@ -256,6 +244,8 @@
         private RepeatButton butUp;
         private RepeatButton butRight;
         private RepeatButton butLeft;
+        private System.Windows.Forms.MainMenu mainMenu;
+        private System.Windows.Forms.MenuItem menuBack;
 
     }
 }

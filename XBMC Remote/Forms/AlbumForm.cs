@@ -18,11 +18,10 @@ namespace XBMC_Remote {
     public partial class AlbumForm : Form {
 
         #region Declarations
-        private bool _processEntireButton = false;
         private bool _buttonAnimation = true;
         private XbmcConnection JsonClient;
+        private int Artist = -1;
         private List<Album> Albums;
-        private List<Song> Songs;
         public string IpAddress;
         #endregion
 
@@ -31,30 +30,23 @@ namespace XBMC_Remote {
         {
             InitializeComponent();
         }
+
+        public AlbumForm(int artist)
+        {
+            InitializeComponent();
+            Artist = artist;
+        }
         #endregion
 
         #region Private Methods
         private bool _isVGA() {
             return StedySoft.SenseSDK.DrawingCE.Resolution.ScreenIsVGA;
         }
-
-        private IImage _getIImageFromResource(string resource) {
-            IImage iimg;
-            using (MemoryStream strm = (MemoryStream)Assembly.GetExecutingAssembly().GetManifestResourceStream("SenseSDKDemo.Resources." + resource + ".png")) {
-                (ImagingFactory.GetImaging()).CreateImageFromBuffer(strm.GetBuffer(), (uint)strm.Length, BufferDisposalFlag.BufferDisposalFlagNone, out iimg);
-            }
-            return iimg;
-        }
         #endregion
 
         #region Events
         private void frmListDemo_Load(object sender, EventArgs e) {
             JsonClient = new XbmcConnection(IpAddress, 8080, "", "");
-
-            // set the list event handlers
-            this.senseListCtrl.OnBeforeShowItemChildren += new SenseListControl.BeforeShowItemChildrenHandler(OnBeforeShowItemChildren);
-            this.senseListCtrl.OnShowItemChildren += new SenseListControl.ShowItemChildrenHandler(OnShowItemChildren);
-            this.senseListCtrl.OnHideItemChildren += new SenseListControl.HideItemChildrenHandler(OnHideItemChildren);
 
             // set the list scroll fluidness
             this.senseListCtrl.MinimumMovement = 25;
@@ -65,74 +57,59 @@ namespace XBMC_Remote {
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
-            Albums = JsonClient.AudioLibrary.GetAlbumsAllFields("artist");
+            if (Artist != -1)
+                Albums = JsonClient.AudioLibrary.GetAlbumsByArtist(Artist);
+            else
+                Albums = JsonClient.AudioLibrary.GetAlbums(new string[] { "artist" }, "label");
 
             // add SensePanelItem(s) w/thumbnail image
             //this.senseListCtrl.AddItem(new StedySoft.SenseSDK.SensePanelDividerItem("DividerItem" + (this._itmCounter++).ToString("0#"), "Panel Items with Thumbnail"));
             foreach (Album a in Albums)
             {
-                StedySoft.SenseSDK.SensePanelMoreItem itmMore = new StedySoft.SenseSDK.SensePanelMoreItem("PanelItem" + a._id + a.Label);
-                itmMore.ButtonAnimation = this._buttonAnimation;
-                itmMore.ProcessEntireButton = this._processEntireButton;
-                itmMore.PrimaryText = a.Label;
-                itmMore.SecondaryText = a.Artist;
-                itmMore.Tag = a._id;
-                //itmMore.Thumbnail = a.Thumbnail;
-                itmMore.OnClick += new SensePanelMoreItem.ClickEventHandler(OnClickGeneric);
-                this.senseListCtrl.AddItem(itmMore);
+                StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem(a._id.ToString());
+                itm.ButtonAnimation = this._buttonAnimation;
+                itm.PrimaryText = a.Label;
+                itm.SecondaryText = a.Artist;
+                itm.Tag = a._id;
+                //itm.Thumbnail = a.Thumbnail;
+                itm.OnClick += new SensePanelItem.ClickEventHandler(OnClickGeneric);
+                this.senseListCtrl.AddItem(itm);
             }
 
+            if (Artist != -1)
+            {
+                StedySoft.SenseSDK.SensePanelDividerItem divider = new StedySoft.SenseSDK.SensePanelDividerItem();  
+                this.senseListCtrl.AddItem(divider);
+
+                StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem("PanelItemAll");
+                itm.ButtonAnimation = this._buttonAnimation;
+                itm.PrimaryText = "All Songs";
+                itm.Tag = -1;
+                itm.OnClick += new SensePanelItem.ClickEventHandler(OnClickGeneric);
+                this.senseListCtrl.AddItem(itm);
+            }
             // we are done so turn on UI updating
             this.senseListCtrl.EndUpdate();
 
             // enable Tap n' Hold & auto SIP for SensePanelTextboxItem(s)
             SIP.Enable(this.senseListCtrl.Handle);
-            this.sip.EnabledChanged += new EventHandler(sip_EnabledChanged);
-        }
-
-        void OnBeforeShowItemChildren(SenseListControl.ISenseListItem Sender, ref bool Cancel)
-        {
-            SensePanelMoreItem itmMore = Sender as SensePanelMoreItem;
-            // only add child items once!!
-            if (itmMore.Children.Count != 0) { return; }
-            // add SensePanelRadioItem(s) in Child Container
-
-            Songs = JsonClient.AudioLibrary.GetSongsByAlbum((int)Sender.Tag);
-
-            foreach (Song s in Songs)
-            {
-                StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem("PanelItem" + s.Label);
-                itm.ButtonAnimation = this._buttonAnimation;
-                itm.PrimaryText = s.Label;
-                itm.Tag = s._id;
-                itm.OnClick += new SensePanelItem.ClickEventHandler(OnClickSong);
-                itmMore.Children.Add(itm);
-            }
-        }
-
-        private int _childLevel = -1;
-        void OnShowItemChildren(SenseListControl.ISenseListItem Sender)
-        {
-            this._childLevel++;
-        }
-
-        void OnHideItemChildren(SenseListControl.ISenseListItem Sender)
-        {
-            this._childLevel--;
         }
 
         void OnClickGeneric(object Sender) {
-            senseListCtrl.ShowChildren();
-        }
-
-        void OnClickSong(object Sender) {
-            JsonClient.Control.PlaySong((int)(Sender as SensePanelItem).Tag); 
+            SongForm SongForm;
+            if (Artist != -1)
+            {
+                SongForm = new SongForm(Artist, (int)(Sender as SensePanelItem).Tag);
+            }
+            else
+            {
+                SongForm = new SongForm((int)(Sender as SensePanelItem).Tag);
+            }
+            SongForm.IpAddress = IpAddress;
+            SongForm.Show();
         }
 
         void frmListDemo_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
-            this.senseListCtrl.OnBeforeShowItemChildren -= new SenseListControl.BeforeShowItemChildrenHandler(OnBeforeShowItemChildren);
-            this.senseListCtrl.OnShowItemChildren -= new SenseListControl.ShowItemChildrenHandler(OnShowItemChildren);
-            this.senseListCtrl.OnHideItemChildren -= new SenseListControl.HideItemChildrenHandler(OnHideItemChildren);
             this.senseListCtrl.Clear();
         }
 
@@ -140,33 +117,22 @@ namespace XBMC_Remote {
             this.senseListCtrl.Dispose();
         }
 
-        private int _sipOffset = 0;
-        void sip_EnabledChanged(object sender, EventArgs e) {
-            if (this.sip.Enabled) {
-                SenseListControl.ISenseListItem IItem = this.senseListCtrl.FocusedItem;
-                Rectangle r = IItem.ClientRectangle;
-                r.Offset(0, this.senseListCtrl.Bounds.Top);
-                if (IItem is SensePanelTextboxItem) {
-                    if (r.Bottom > this.sip.VisibleDesktop.Height) {
-                        this._sipOffset = Math.Abs(this.sip.VisibleDesktop.Height - r.Bottom);
-                        this.senseListCtrl.ScrollList(-this._sipOffset);
-                        this.senseListCtrl.Invalidate();
-                    }
-                }
-            }
-            else {
-                if (!this._sipOffset.Equals(0)) {
-                    this.senseListCtrl.ScrollList(this._sipOffset);
-                    this.senseListCtrl.Invalidate();
-                }
-                this._sipOffset = 0;
-            }
-        }
-
         private void menuBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        
+
+        private void AlbumForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Album found = Albums.Find(delegate(Album a) { return (a.Label.Substring(0, 1).ToLower() == e.KeyChar.ToString()); });
+            if (found != null)
+            {
+                this.senseListCtrl.ScrollIntoView(senseListCtrl[found._id.ToString()]);
+                this.sip.Enabled = false;
+            }
+        }
+
         #endregion
     }
 }

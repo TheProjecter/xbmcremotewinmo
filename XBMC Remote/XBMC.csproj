@@ -76,13 +76,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Communication\EventClient.cs" />
     <Compile Include="Forms\AlbumForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AlbumForm.Designer.cs">
       <DependentUpon>AlbumForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Communication\XBMC.EventClient.cs" />
+    <Compile Include="Forms\ArtistForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ArtistForm.Designer.cs">
+      <DependentUpon>ArtistForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MusicForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MusicForm.Designer.cs">
+      <DependentUpon>MusicForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SongForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +121,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ArtistForm.resx">
+      <DependentUpon>ArtistForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MusicForm.resx">
+      <DependentUpon>MusicForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SongForm.resx">
       <DependentUpon>SongForm.cs</DependentUpon>
       <SubType>Designer</SubType>

@@ -24,19 +24,11 @@ namespace XBMC_Remote
         private XbmcConnection JsonClient;
         private string CurrentSong;
         
-        private HardwareButton hwb1, hwb4;
-
         public string IpAddress;
 
         public NowPlayingForm()
         {
             InitializeComponent();
-
-            this.KeyPreview = true;
-
-            // Call the method to configure
-            // the hardware button.
-            HBConfig();
         }
 
         private void InitializeTimer()
@@ -158,47 +150,16 @@ namespace XBMC_Remote
             EventClient.SendButton("pause", "R1", ButtonFlagsType.BTN_DOWN | ButtonFlagsType.BTN_NO_REPEAT);
         }
 
-        private void NowPlayingForm_LostFocus(object sender, EventArgs e)
+        private void NowPlayingForm_Closing(object sender, CancelEventArgs e)
         {
-            /*
-            updateTimer.Dispose();
-            this.Dispose();
+            updateTimer.Enabled = false;
+            JsonClient = null;
+            EventClient = null;
+        }
+
+        private void menuBack_Click(object sender, EventArgs e)
+        {
             this.Close();
-            */
-        }
-
-        private void HBConfig()
-        {
-            try
-            {
-                hwb1 = new HardwareButton();
-                hwb4 = new HardwareButton();
-                hwb1.AssociatedControl = this;
-                hwb4.AssociatedControl = this;
-                hwb1.HardwareKey = HardwareKeys.ApplicationKey2;
-                hwb4.HardwareKey = HardwareKeys.ApplicationKey3;
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message + " Check if the hardware button is physically available on this device.");
-            }
-        }
-
-        private void NowPlayingForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch ((HardwareKeys)e.KeyCode)
-            {
-                case HardwareKeys.ApplicationKey1:
-                    MessageBox.Show("Button 1 pressed.");
-                    break;
-
-                case HardwareKeys.ApplicationKey4:
-                    MessageBox.Show("Button 4 pressed.");
-                    break;
-
-                default:
-                    break;
-            }
         }
     }
 }
