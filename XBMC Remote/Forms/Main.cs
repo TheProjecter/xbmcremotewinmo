@@ -80,7 +80,7 @@ namespace XBMC_Remote
             foreach (string label in list)
             {
                 StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem();
-                itm.Height = 96;
+                itm.Height = 100;
                 itm.ButtonAnimation = this._buttonAnimation;
                 itm.PrimaryText = label;
                 itm.IThumbnail = _getIImageFromResource("icon_home_" + label.Split(' ')[0].ToLower());
@@ -97,9 +97,36 @@ namespace XBMC_Remote
 
         void OnClickGeneric(object Sender)
         {
-            MusicForm MusicForm = new MusicForm();
-            MusicForm.IpAddress = IpAddress;
-            MusicForm.Show();
+            switch ((Sender as SensePanelItem).PrimaryText.Split(' ')[0].ToLower())
+            {
+                case "music":
+                    MusicForm MusicForm = new MusicForm();
+                    MusicForm.IpAddress = IpAddress;
+                    MusicForm.Show();
+                    break;
+                case "movies":
+                    MovieForm MovieForm = new MovieForm();
+                    MovieForm.IpAddress = IpAddress;
+                    MovieForm.Show();
+                    break;
+                case "tv":
+                    TvForm TvForm = new TvForm();
+                    TvForm.IpAddress = IpAddress;
+                    TvForm.Show();
+                    break;
+                case "pictures":
+                    break;
+                case "now":
+                    NowPlayingForm NowPlayingForm = new NowPlayingForm();
+                    NowPlayingForm.IpAddress = IpAddress;
+                    NowPlayingForm.Show();
+                    break;
+                case "remote":
+                    RemoteForm RemoteForm = new RemoteForm();
+                    RemoteForm.IpAddress = IpAddress;
+                    RemoteForm.Show();
+                    break;
+            }
         }
 
         void MainForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -191,6 +218,8 @@ namespace XBMC_Remote
             }
             catch
             {
+                Directory.CreateDirectory("\\Application Data\\XBMC_Remote");
+                Directory.CreateDirectory("\\Application Data\\XBMC_Remote\\cache");
             }
         }
         #endregion

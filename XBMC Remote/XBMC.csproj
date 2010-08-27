@@ -19,6 +19,7 @@
     <FormFactorID>
     </FormFactorID>
     <StartupObject>XBMC_Remote.Program</StartupObject>
+    <ApplicationIcon>XBMC2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,13 +59,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Sense UI SDK\Bin\SenseSDK.Resources.QVGA.dll</HintPath>
     </Reference>
-    <Reference Include="SenseSDKExtended, Version=1.0.730.883, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SenseSDKExtended, Version=0.2.813.1402, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Sense UI SDK\v0.1\Library\SenseSDKExtended.dll</HintPath>
+      <HintPath>..\..\..\..\SenseSDK.v1.39\Sense UI SDK\Bin\SenseSDKExtended.dll</HintPath>
+    </Reference>
+    <Reference Include="SenseSDKExtended.Resources.QVGA, Version=1.0.813.505, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\SenseSDK.v1.39\Sense UI SDK\Bin\SenseSDKExtended.Resources.QVGA.dll</HintPath>
     </Reference>
     <Reference Include="StedySoft.SenseSDK, Version=1.39.3814.15624, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Sense UI SDK\Bin\StedySoft.SenseSDK.dll</HintPath>
+      <HintPath>..\..\..\..\SenseSDK.v1.39\Sense UI SDK\Bin\StedySoft.SenseSDK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -88,6 +93,24 @@
     </Compile>
     <Compile Include="Forms\ArtistForm.Designer.cs">
       <DependentUpon>ArtistForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EpisodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EpisodeForm.Designer.cs">
+      <DependentUpon>EpisodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SeasonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SeasonForm.Designer.cs">
+      <DependentUpon>SeasonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TvForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TvForm.Designer.cs">
+      <DependentUpon>TvForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MusicForm.cs">
       <SubType>Form</SubType>
@@ -178,6 +201,7 @@
     <Compile Include="System\CustomComponents.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="System\Functions.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\icon_home_movies.png" />
@@ -195,6 +219,18 @@
     <EmbeddedResource Include="Resources\icon_home_remote.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\EpisodeForm.resx">
+      <DependentUpon>EpisodeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SeasonForm.resx">
+      <DependentUpon>SeasonForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TvForm.resx">
+      <DependentUpon>TvForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -207,6 +243,9 @@
       <Project>{B2616CEC-DF37-4136-94CF-4B7F02C12323}</Project>
       <Name>XbmcJsonCompact</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="XBMC2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <ProjectExtensions>

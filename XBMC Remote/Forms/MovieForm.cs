@@ -51,6 +51,14 @@ namespace XBMC_Remote {
 
             Movies = JsonClient.VideoLibrary.GetMovies();
 
+            if (Movies == null)
+            {
+                if (SenseAPIs.SenseMessageBox.Show("There are no movies in your library", "Error", SenseMessageBoxButtons.OK) == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
+
             // add SensePanelItem(s) w/thumbnail image
             //this.senseListCtrl.AddItem(new StedySoft.SenseSDK.SensePanelDividerItem("DividerItem" + (this._itmCounter++).ToString("0#"), "Panel Items with Thumbnail"));
             foreach (Movie m in Movies)

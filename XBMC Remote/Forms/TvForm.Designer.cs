@@ -1,5 +1,5 @@
 ﻿namespace XBMC_Remote{
-    partial class AlbumForm {
+    partial class TvForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -40,7 +40,7 @@
             this.senseHeaderCtrl.Name = "senseHeaderCtrl";
             this.senseHeaderCtrl.Size = new System.Drawing.Size(480, 25);
             this.senseHeaderCtrl.TabIndex = 0;
-            this.senseHeaderCtrl.Text = "Albums";
+            this.senseHeaderCtrl.Text = "TV Shows";
             // 
             // senseListCtrl
             // 
@@ -75,7 +75,7 @@
             this.menuBack.Text = "Back";
             this.menuBack.Click += new System.EventHandler(this.menuBack_Click);
             // 
-            // AlbumForm
+            // ArtistForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -88,13 +88,12 @@
             this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu;
             this.MinimizeBox = false;
-            this.Name = "AlbumForm";
-            this.Text = "Albums";
+            this.Name = "ArtistForm";
+            this.Text = "Music";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmListDemo_Load);
             this.Closed += new System.EventHandler(this.frmListDemo_Closed);
             this.Closing += new System.ComponentModel.CancelEventHandler(this.frmListDemo_Closing);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AlbumForm_KeyPress);
             this.ResumeLayout(false);
 
         }

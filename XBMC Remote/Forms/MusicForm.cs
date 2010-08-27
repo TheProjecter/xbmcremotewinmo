@@ -30,7 +30,6 @@ namespace XBMC_Remote {
         }
         #endregion
 
-
         #region Events
         private void frmListDemo_Load(object sender, EventArgs e) {
             JsonClient = new XbmcConnection(IpAddress, 8080, "", "");
@@ -43,6 +42,16 @@ namespace XBMC_Remote {
           
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
+
+            list<Song> songs = JsonClient.AudioLibrary.GetSongs();
+
+            if (songs == null)
+            {
+                if (SenseAPIs.SenseMessageBox.Show("There is no music in your library", "Error", SenseMessageBoxButtons.OK) == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
 
             string[] list = {"By Genre", "By Artist", "By Album"};
 

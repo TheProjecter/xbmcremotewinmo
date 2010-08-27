@@ -89,7 +89,7 @@
             this.Menu = this.mainMenu;
             this.MinimizeBox = false;
             this.Name = "ArtistForm";
-            this.Text = "Music";
+            this.Text = "Artists";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmListDemo_Load);
             this.Closed += new System.EventHandler(this.frmListDemo_Closed);

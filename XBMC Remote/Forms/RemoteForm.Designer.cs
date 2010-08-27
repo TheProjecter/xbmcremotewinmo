@@ -200,7 +200,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
-            this.ClientSize = new System.Drawing.Size(480, 696);
+            this.ClientSize = new System.Drawing.Size(480, 748);
             this.Controls.Add(this.butFForward);
             this.Controls.Add(this.butPlay);
             this.Controls.Add(this.butFBackward);
@@ -218,10 +218,11 @@
             this.Controls.Add(this.butRight);
             this.Controls.Add(this.butLeft);
             this.KeyPreview = true;
-            this.Location = new System.Drawing.Point(0, 52);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu;
             this.Name = "RemoteForm";
             this.Text = "Remote Control";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.RemoteForm_Load);
             this.ResumeLayout(false);
 

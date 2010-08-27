@@ -15,29 +15,23 @@ using StedySoft.SenseSDK.DrawingCE;
 using StedySoft.SenseSDK.Localization;
 
 namespace XBMC_Remote {
-    public partial class SongForm : Form {
+    public partial class EpisodeForm : Form {
 
         #region Declarations
         private bool _buttonAnimation = true;
-        private int albumId = -1;
-        private int artistId = -1;
         private XbmcConnection JsonClient;
-        private List<Song> Songs;
+        private new int Show = -1;
+        private int Season = -1;
+        private List<Episode> Episodes;
         public string IpAddress;
         #endregion
 
         #region Constructor
-        public SongForm(int albumid)
+        public EpisodeForm(int show, int season)
         {
-            albumId = albumid;
             InitializeComponent();
-        }
-
-        public SongForm(int artistid, int albumid)
-        {
-            artistId = artistid;
-            albumId = albumid;
-            InitializeComponent();
+            Show = show;
+            Season = season;
         }
         #endregion
 
@@ -52,33 +46,23 @@ namespace XBMC_Remote {
             JsonClient = new XbmcConnection(IpAddress, 8080, "", "");
 
             // set the list scroll fluidness
-            this.senseListCtrl.MinimumMovement = 15;
-            this.senseListCtrl.ThreadSleep = 100;
+            this.senseListCtrl.MinimumMovement = 25;
+            this.senseListCtrl.ThreadSleep = 75;
             this.senseListCtrl.Velocity = .99f;
             this.senseListCtrl.Springback = .35f;
           
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
-            if (artistId != -1)
-            {
-                if (albumId == -1)
-                    Songs = JsonClient.AudioLibrary.GetSongsByArtistAllFields(artistId);
-                else
-                    Songs = JsonClient.AudioLibrary.GetSongsByArtistAndAlbumAllFields(artistId, albumId);
-            }
-            else
-            {
-                Songs = JsonClient.AudioLibrary.GetSongsByAlbumAllFields(albumId);
-            }
+            Episodes = JsonClient.VideoLibrary.GetEpisodesAllFields(Show, Season , null, null, null, null);
 
-            foreach (Song s in Songs)
+            foreach (Episode ep in Episodes)
             {
-                StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem(s._id.ToString());
+                StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem(ep._id.ToString());
                 itm.ButtonAnimation = this._buttonAnimation;
-                itm.PrimaryText = s.Label;
-                itm.SecondaryText = s.Artist;
-                itm.Tag = s._id;
+                itm.PrimaryText = ep.Label;
+                itm.SecondaryText = "Episode: " + ep.EpisodeNum.ToString();
+                itm.Tag = ep._id;
                 itm.OnClick += new SensePanelItem.ClickEventHandler(OnClickGeneric);
                 this.senseListCtrl.AddItem(itm);
             }
@@ -91,7 +75,7 @@ namespace XBMC_Remote {
         }
 
         void OnClickGeneric(object Sender) {
-            JsonClient.Control.PlaySong((int)(Sender as SensePanelItem).Tag); 
+            JsonClient.Control.PlayEpisode(Show, Season, (int)(Sender as SensePanelItem).Tag);
         }
 
         void frmListDemo_Closing(object sender, System.ComponentModel.CancelEventArgs e) {

@@ -29,11 +29,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuOK = new System.Windows.Forms.MenuItem();
             this.menuCancel = new System.Windows.Forms.MenuItem();
-            this.IPLabel = new System.Windows.Forms.Label();
-            this.IPText = new System.Windows.Forms.TextBox();
+            this.senseListCtrl = new StedySoft.SenseSDK.SenseListControl();
+            this.senseHeaderCtrl = new StedySoft.SenseSDK.SenseHeaderControl();
+            this.sip = new Microsoft.WindowsCE.Forms.InputPanel(this.components);
             this.SuspendLayout();
             // 
             // mainMenu1
@@ -51,33 +53,47 @@
             this.menuCancel.Text = "Cancel";
             this.menuCancel.Click += new System.EventHandler(this.menuCancel_Click);
             // 
-            // IPLabel
+            // senseListCtrl
             // 
-            this.IPLabel.Location = new System.Drawing.Point(6, 24);
-            this.IPLabel.Name = "IPLabel";
-            this.IPLabel.Size = new System.Drawing.Size(216, 32);
-            this.IPLabel.Text = "XBMC IP Address:";
+            this.senseListCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.senseListCtrl.FocusedItem = null;
+            this.senseListCtrl.IsSecondaryScrollType = false;
+            this.senseListCtrl.Location = new System.Drawing.Point(0, 25);
+            this.senseListCtrl.MinimumMovement = 15;
+            this.senseListCtrl.Name = "senseListCtrl";
+            this.senseListCtrl.ShowScrollIndicator = true;
+            this.senseListCtrl.Size = new System.Drawing.Size(480, 723);
+            this.senseListCtrl.Springback = 0.35F;
+            this.senseListCtrl.TabIndex = 3;
+            this.senseListCtrl.ThreadSleep = 100;
+            this.senseListCtrl.TopIndex = 0;
+            this.senseListCtrl.Velocity = 0.9F;
             // 
-            // IPText
+            // senseHeaderCtrl
             // 
-            this.IPText.Location = new System.Drawing.Point(6, 62);
-            this.IPText.Name = "IPText";
-            this.IPText.Size = new System.Drawing.Size(200, 41);
-            this.IPText.TabIndex = 1;
+            this.senseHeaderCtrl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.senseHeaderCtrl.Location = new System.Drawing.Point(0, 0);
+            this.senseHeaderCtrl.Name = "senseHeaderCtrl";
+            this.senseHeaderCtrl.Size = new System.Drawing.Size(480, 25);
+            this.senseHeaderCtrl.TabIndex = 2;
+            this.senseHeaderCtrl.Text = "Settings";
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(480, 696);
-            this.Controls.Add(this.IPText);
-            this.Controls.Add(this.IPLabel);
-            this.Location = new System.Drawing.Point(0, 52);
+            this.ClientSize = new System.Drawing.Size(480, 748);
+            this.Controls.Add(this.senseListCtrl);
+            this.Controls.Add(this.senseHeaderCtrl);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu1;
             this.Name = "SettingsForm";
             this.Text = "Settings";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SettingsForm_Load);
+            this.Closed += new System.EventHandler(this.SettingsForm_Closed);
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.SettingsForm_Closing);
             this.ResumeLayout(false);
 
         }
@@ -86,7 +102,8 @@
 
         private System.Windows.Forms.MenuItem menuOK;
         private System.Windows.Forms.MenuItem menuCancel;
-        private System.Windows.Forms.Label IPLabel;
-        private System.Windows.Forms.TextBox IPText;
+        private StedySoft.SenseSDK.SenseListControl senseListCtrl;
+        private StedySoft.SenseSDK.SenseHeaderControl senseHeaderCtrl;
+        private Microsoft.WindowsCE.Forms.InputPanel sip;
     }
 }
