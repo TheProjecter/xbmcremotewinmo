@@ -54,7 +54,7 @@ namespace XBMC_Remote {
 
             if (TvShows == null)
             {
-                if (SenseAPIs.SenseMessageBox.Show("There are no Tv Shows in your library", "Error", SenseMessageBoxButtons.OK) == DialogResult.OK)
+                if (SenseAPIs.SenseMessageBox.Show("There are no TV Shows in your library", "Error", SenseMessageBoxButtons.OK) == DialogResult.OK)
                 {
                     this.Close();
                 }
@@ -71,6 +71,8 @@ namespace XBMC_Remote {
                 
                 itm.Image = iimg;
                 itm.ImageSize = new Size((int)(imageinfo.Width), (int)(imageinfo.Height));
+                imageinfo = null;
+                iimg = null;
                 itm.ButtonAnimation = this._buttonAnimation;
                 itm.Height = (int)(imageinfo.Height);
                 itm.Tag = t._id;
