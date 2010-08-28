@@ -62,21 +62,20 @@ namespace XBMC_Remote {
                 itm.SecondaryText = s.Rating.ToString();
                 itm.Tag = s._Season;
                 IImage thumbImage = Functions.GetTvSeasonThumbnail(JsonClient, s.Thumbnail);
-                
                 ImageInfo info;
                 thumbImage.GetImageInfo(out info);
                 itm.IThumbnail = thumbImage;
-
                 itm.Height = (int)(info.Height);
+
+                thumbImage = null;
+                info = null;
+
                 itm.OnClick += new SensePanelItem.ClickEventHandler(OnClickGeneric);
                 this.senseListCtrl.AddItem(itm);
             }
 
             // we are done so turn on UI updating
             this.senseListCtrl.EndUpdate();
-
-            // enable Tap n' Hold & auto SIP for SensePanelTextboxItem(s)
-            SIP.Enable(this.senseListCtrl.Handle);
         }
 
         void OnClickGeneric(object Sender) {
