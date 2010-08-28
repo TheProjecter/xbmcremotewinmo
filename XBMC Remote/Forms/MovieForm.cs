@@ -45,7 +45,7 @@ namespace XBMC_Remote {
             this.senseListCtrl.ThreadSleep = 75;
             this.senseListCtrl.Velocity = .99f;
             this.senseListCtrl.Springback = .35f;
-          
+
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
@@ -60,7 +60,6 @@ namespace XBMC_Remote {
             }
 
             // add SensePanelItem(s) w/thumbnail image
-            //this.senseListCtrl.AddItem(new StedySoft.SenseSDK.SensePanelDividerItem("DividerItem" + (this._itmCounter++).ToString("0#"), "Panel Items with Thumbnail"));
             foreach (Movie m in Movies)
             {
                 StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem(m._id.ToString());
@@ -86,34 +85,14 @@ namespace XBMC_Remote {
         }
 
         void frmListDemo_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
-            this.senseListCtrl.Clear();
+            if (this.senseListCtrl.ScrollList(1))
+            {
+                this.senseListCtrl.Clear();
+            }
         }
 
         void frmListDemo_Closed(object sender, System.EventArgs e) {
             this.senseListCtrl.Dispose();
-        }
-
-        private int _sipOffset = 0;
-        void sip_EnabledChanged(object sender, EventArgs e) {
-            if (this.sip.Enabled) {
-                SenseListControl.ISenseListItem IItem = this.senseListCtrl.FocusedItem;
-                Rectangle r = IItem.ClientRectangle;
-                r.Offset(0, this.senseListCtrl.Bounds.Top);
-                if (IItem is SensePanelTextboxItem) {
-                    if (r.Bottom > this.sip.VisibleDesktop.Height) {
-                        this._sipOffset = Math.Abs(this.sip.VisibleDesktop.Height - r.Bottom);
-                        this.senseListCtrl.ScrollList(-this._sipOffset);
-                        this.senseListCtrl.Invalidate();
-                    }
-                }
-            }
-            else {
-                if (!this._sipOffset.Equals(0)) {
-                    this.senseListCtrl.ScrollList(this._sipOffset);
-                    this.senseListCtrl.Invalidate();
-                }
-                this._sipOffset = 0;
-            }
         }
 
         private void menuBack_Click(object sender, EventArgs e)
