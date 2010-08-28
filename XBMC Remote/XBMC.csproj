@@ -51,6 +51,7 @@
     <Reference Include="Microsoft.WindowsMobile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.WindowsMobile.PocketOutlook, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="Microsoft.WindowsMobile.Status, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <Private>False</Private>
     </Reference>
@@ -59,17 +60,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Sense UI SDK\Bin\SenseSDK.Resources.QVGA.dll</HintPath>
     </Reference>
+    <Reference Include="SenseSDK.Resources.VGA, Version=1.38.3809.24006, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Sense UI SDK\v0.1\Library\SenseSDK.Resources.VGA.dll</HintPath>
+    </Reference>
     <Reference Include="SenseSDKExtended, Version=0.2.813.1402, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\SenseSDK.v1.39\Sense UI SDK\Bin\SenseSDKExtended.dll</HintPath>
-    </Reference>
-    <Reference Include="SenseSDKExtended.Resources.QVGA, Version=1.0.813.505, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\SenseSDK.v1.39\Sense UI SDK\Bin\SenseSDKExtended.Resources.QVGA.dll</HintPath>
+      <HintPath>..\..\..\..\Sense UI SDK\Bin\SenseSDKExtended.dll</HintPath>
     </Reference>
     <Reference Include="StedySoft.SenseSDK, Version=1.39.3814.15624, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\SenseSDK.v1.39\Sense UI SDK\Bin\StedySoft.SenseSDK.dll</HintPath>
+      <HintPath>..\..\..\..\Sense UI SDK\Bin\StedySoft.SenseSDK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -197,11 +198,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="System\BackgroundThread.cs" />
     <Compile Include="System\CustomComponents.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="System\Functions.cs" />
+    <Compile Include="System\MsgInterceptor.cs" />
+    <Compile Include="System\NewMsgWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\icon_home_movies.png" />

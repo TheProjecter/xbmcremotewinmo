@@ -9,7 +9,6 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
-using System.Threading;
 
 using XbmcEventClient;
 
@@ -18,6 +17,9 @@ using Microsoft.Drawing;
 using StedySoft.SenseSDK;
 using StedySoft.SenseSDK.DrawingCE;
 using StedySoft.SenseSDK.Localization;
+
+using Microsoft.WindowsMobile.PocketOutlook;
+using Microsoft.WindowsMobile.PocketOutlook.MessageInterception;
 
 namespace XBMC_Remote
 {
@@ -29,13 +31,16 @@ namespace XBMC_Remote
     public partial class MainForm : Form
     {
         #region Declarations
-        public string IpAddress;
+        private string IpAddress, Caller;
 
         private bool _buttonAnimation = true;
-        private bool ButtonsEnabled = false;
+        private EventClient MainClient = new EventClient();
 
-        EventClient MainClient = new EventClient();
-        BackgroundThread backgroundThread = new BackgroundThread();
+        private System.Windows.Forms.Timer backgroundTimer = new System.Windows.Forms.Timer();
+
+        // the message window to watch for for notification from RTRule.dll
+        private NewMsgWindow msgWin;
+
         #endregion
 
         #region Constructor
@@ -44,6 +49,7 @@ namespace XBMC_Remote
             InitializeComponent();
             InitializeSettings();
         }
+
         #endregion
 
         #region Private Methods
@@ -64,8 +70,20 @@ namespace XBMC_Remote
         }
         #endregion
 
+        #region Events
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // Set up SMS interception
+            // RTRule.dll will send a predefined message to this window
+            // when a new incoming text message is received.
+            msgWin = new NewMsgWindow();
+            msgWin.Text = "NewSMSWatcher";
+            msgWin.OnNewTextMessage += new NewMsgWindow.NewTextMessageEventHandler(OnSmsReceived);
+
+            // setup the timer
+            backgroundTimer.Tick += new EventHandler(backgroundTimer_Tick);
+            backgroundTimer.Interval = 500;
+
             // set the list scroll fluidness
             this.senseListCtrl.MinimumMovement = 25;
             this.senseListCtrl.ThreadSleep = 75;
@@ -141,20 +159,25 @@ namespace XBMC_Remote
 
         private void menuConnect_Click(object sender, EventArgs e)
         {
-            MainClient.Connect(IpAddress);
-            if (MainClient.Connected.Equals(true))
+            if (menuConnect.Text == "Connect")
             {
-                MainClient.SendHelo("XBMC Remote for WinMo", XbmcEventClient.IconType.ICON_NONE, null);
-                backgroundThread.IpAddress = IpAddress;
-                backgroundThread.StartBackgroundWorker();
-                menuConnect.Text = "Disconnect";
-                ButtonsEnabled = true;
+                MainClient.Connect(IpAddress);
+                if (MainClient.Connected.Equals(true))
+                {
+                    MainClient.SendHelo("XBMC Remote for WinMo", XbmcEventClient.IconType.ICON_NONE, null);
+                    menuConnect.Text = "Disconnect";
+                    backgroundTimer.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Error connecting to XBMC server at " + IpAddress);
+                    menuConnect.Text = "Connect";
+                }
             }
             else
             {
-                MessageBox.Show("Error connecting to XBMC server at " + IpAddress);
+                backgroundTimer.Enabled = false;
                 menuConnect.Text = "Connect";
-                ButtonsEnabled = false;
             }
         }
 
@@ -172,40 +195,81 @@ namespace XBMC_Remote
             this.Close();
         }
 
-        private void remoteBut_Click(object sender, EventArgs e)
+        void backgroundTimer_Tick(object sender, EventArgs e)
         {
-            if (ButtonsEnabled.Equals(true))
+            if (Microsoft.WindowsMobile.Status.SystemState.PhoneIncomingCall == true)
             {
-                RemoteForm remf = new RemoteForm();
-                remf.IpAddress = IpAddress;
-                remf.Show();
-            }
-            else
-            {
-                MessageBox.Show("Please connect first.");
+                if (Microsoft.WindowsMobile.Status.SystemState.PhoneIncomingCallerName != null)
+                {
+                    Caller = Microsoft.WindowsMobile.Status.SystemState.PhoneIncomingCallerName;
+                }
+                else
+                {
+                    Caller = Microsoft.WindowsMobile.Status.SystemState.PhoneIncomingCallerNumber;
+                }
+                MainClient.SendButton("pause", "R1", ButtonFlagsType.BTN_DOWN | ButtonFlagsType.BTN_NO_REPEAT);
+                MainClient.SendNotification("Incoming Call", Caller, IconType.ICON_NONE, null);
+                while (Microsoft.WindowsMobile.Status.SystemState.PhoneIncomingCall != false)
+                {
+                }
+                while (Microsoft.WindowsMobile.Status.SystemState.PhoneCallTalking != false)
+                {
+                }
+                MainClient.SendButton("play", "R1", ButtonFlagsType.BTN_DOWN | ButtonFlagsType.BTN_NO_REPEAT);
             }
         }
 
-        private void playingBut_Click(object sender, EventArgs e)
+        private bool OnSmsReceived(string sender, string messageText)
         {
-            if (ButtonsEnabled.Equals(true))
+            Contact contact = null;
+            using (OutlookSession session = new OutlookSession())
             {
-                NowPlayingForm playF = new NowPlayingForm();
-                playF.IpAddress = IpAddress;
-                playF.Show();
+                foreach (Contact c in session.Contacts.Items)
+                {
+                    if (c.MobileTelephoneNumber.Length != 0
+                        && PhoneNumbersMatch(c.MobileTelephoneNumber, sender))
+                    {
+                        // We have a match
+                        contact = c;
+                        break;
+                    }
+                }
+
+                if (contact == null)
+                {
+                    // There is no contact for this phone number
+                    // so create one
+                    contact = new Contact();
+                    contact.FirstName = "Unknown";
+                    contact.MobileTelephoneNumber = sender;
+                }
             }
-            else
-            {
-                MessageBox.Show("Please connect first.");
-            }
+            MainClient.SendNotification("Incoming message from " + contact.FirstName, messageText, IconType.ICON_NONE, null);
+            contact.Delete();
+            return true;
         }
 
-        private void moviesBut_Click(object sender, EventArgs e)
+        private static string NormalizePhoneNumber(string s)
         {
-            MovieForm MovieForm = new MovieForm();
-            MovieForm.IpAddress = IpAddress;
-            MovieForm.Show();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] >= '0' && s[i] <= '9')
+                {
+                    sb.Append(s[i]);
+                }
+            }
+            return sb.ToString();
         }
+
+        private static bool PhoneNumbersMatch(string s1, string s2)
+        {
+            string num1 = NormalizePhoneNumber(s1);
+            string num2 = NormalizePhoneNumber(s2);
+            return num1.Substring(Math.Max(0, num1.Length - 7)) ==
+                   num2.Substring(Math.Max(0, num2.Length - 7));
+        }
+        #endregion
 
         #region Functions
         private void InitializeSettings()
@@ -225,11 +289,6 @@ namespace XBMC_Remote
         #endregion
 
         #region Callbacks
-        private void SetConnectLabelCallbackFn(string Status)
-        {
-            menuConnect.Text = Status;
-        }
-
         private void SetIpCallbackFn(string Ip)
         {
             IpAddress = Ip;

@@ -19,8 +19,8 @@ namespace XBMC_Remote {
 
         #region Declarations
         private bool _buttonAnimation = true;
-        private int albumId = -1;
-        private int artistId = -1;
+        private int? albumId;
+        private int? artistId;
         private XbmcConnection JsonClient;
         private List<Song> Songs;
         public string IpAddress;
@@ -60,16 +60,16 @@ namespace XBMC_Remote {
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
-            if (artistId != -1)
+            if (artistId != null)
             {
-                if (albumId == -1)
-                    Songs = JsonClient.AudioLibrary.GetSongsByArtistAllFields(artistId);
+                if (albumId == null)
+                    Songs = JsonClient.AudioLibrary.GetSongsByArtistAllFields((int)artistId);
                 else
-                    Songs = JsonClient.AudioLibrary.GetSongsByArtistAndAlbumAllFields(artistId, albumId);
+                    Songs = JsonClient.AudioLibrary.GetSongsByArtistAndAlbumAllFields((int)artistId, (int)albumId);
             }
             else
             {
-                Songs = JsonClient.AudioLibrary.GetSongsByAlbumAllFields(albumId);
+                Songs = JsonClient.AudioLibrary.GetSongsByAlbumAllFields((int)albumId);
             }
 
             foreach (Song s in Songs)
@@ -77,6 +77,7 @@ namespace XBMC_Remote {
                 StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem(s._id.ToString());
                 itm.ButtonAnimation = this._buttonAnimation;
                 itm.PrimaryText = s.Label;
+                
                 itm.SecondaryText = s.Artist;
                 itm.Tag = s._id;
                 itm.OnClick += new SensePanelItem.ClickEventHandler(OnClickGeneric);

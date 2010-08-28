@@ -20,7 +20,7 @@ namespace XBMC_Remote {
         #region Declarations
         private bool _buttonAnimation = true;
         private XbmcConnection JsonClient;
-        private int Artist = -1;
+        private int? Artist;
         private List<Album> Albums;
         public string IpAddress;
         #endregion
@@ -57,10 +57,10 @@ namespace XBMC_Remote {
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
-            if (Artist != -1)
-                Albums = JsonClient.AudioLibrary.GetAlbumsByArtist(Artist);
+            if (Artist != null)
+                Albums = JsonClient.AudioLibrary.GetAlbumsByArtist((int)Artist);
             else
-                Albums = JsonClient.AudioLibrary.GetAlbums(new string[] { "artist" }, "label");
+                Albums = JsonClient.AudioLibrary.GetAlbums(new string[] { "artist" }, new SortParams("label", null, null, null));
 
             // add SensePanelItem(s) w/thumbnail image
             //this.senseListCtrl.AddItem(new StedySoft.SenseSDK.SensePanelDividerItem("DividerItem" + (this._itmCounter++).ToString("0#"), "Panel Items with Thumbnail"));
@@ -97,9 +97,9 @@ namespace XBMC_Remote {
 
         void OnClickGeneric(object Sender) {
             SongForm SongForm;
-            if (Artist != -1)
+            if (Artist != null)
             {
-                SongForm = new SongForm(Artist, (int)(Sender as SensePanelItem).Tag);
+                SongForm = new SongForm((int)Artist, (int)(Sender as SensePanelItem).Tag);
             }
             else
             {

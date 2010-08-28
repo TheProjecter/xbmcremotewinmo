@@ -52,7 +52,7 @@ namespace XBMC_Remote {
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
-            Seasons = JsonClient.VideoLibrary.GetSeasonsAllFields(Show, null, null, null, null);
+            Seasons = JsonClient.VideoLibrary.GetSeasonsAllFields(Show, new SortParams("label", null, null, null));
 
             foreach (Season s in Seasons)
             {

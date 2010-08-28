@@ -54,7 +54,7 @@ namespace XBMC_Remote {
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
-            Episodes = JsonClient.VideoLibrary.GetEpisodesAllFields(Show, Season , null, null, null, null);
+            Episodes = JsonClient.VideoLibrary.GetEpisodesAllFields(Show, Season, null);
 
             foreach (Episode ep in Episodes)
             {

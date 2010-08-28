@@ -51,6 +51,7 @@ namespace XBMC_Remote
 
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
+
             StedySoft.SenseSDK.SensePanelTextboxItem TbItm = new StedySoft.SenseSDK.SensePanelTextboxItem("Ipaddress");
             TbItm.LabelWidth = 25;
             TbItm.LayoutSytle = SenseTexboxLayoutStyle.Horizontal;
@@ -62,7 +63,37 @@ namespace XBMC_Remote
             TbItm.LostFocus += new EventHandler(TbItm_LostFocus);
             this.senseListCtrl.AddItem(TbItm);
 
+            StedySoft.SenseSDK.SensePanelDividerItem div = new StedySoft.SenseSDK.SensePanelDividerItem();
+            div.Name = "Warning! These functions will reboot your device";
+            this.senseListCtrl.AddItem(div);
+
+            StedySoft.SenseSDK.SensePanelButtonItem butItm = new StedySoft.SenseSDK.SensePanelButtonItem("Install MsgInterceptor Hack");
+            butItm.ShowSeparator = true;
+            butItm.Text = "Install MsgInceptor Hack";
+            butItm.Height = 100;
+            butItm.OnClick += new SensePanelButtonItem.ClickEventHandler(butItm_OnClick);
+            this.senseListCtrl.AddItem(butItm);
+
+            StedySoft.SenseSDK.SensePanelButtonItem butItm2 = new StedySoft.SenseSDK.SensePanelButtonItem("Remove MsgInterceptor Hack");
+            butItm2.ShowSeparator = true;
+            butItm2.Text = "Remove MsgInceptor Hack";
+            butItm2.Height = 100;
+            butItm2.OnClick += new SensePanelButtonItem.ClickEventHandler(butItm2_OnClick);
+            this.senseListCtrl.AddItem(butItm2);
+
             this.senseListCtrl.EndUpdate();
+        }
+
+        void butItm_OnClick(object Sender)
+        {
+            MsgInterceptor msgI = new MsgInterceptor();
+            msgI.CreateInterceptorMethod2();
+        }
+
+        void butItm2_OnClick(object Sender)
+        {
+            MsgInterceptor msgI = new MsgInterceptor();
+            msgI.RemoveInterceptorMethod2();
         }
 
         void TbItm_GotFocus(object sender, EventArgs e)
@@ -88,11 +119,12 @@ namespace XBMC_Remote
                 textWriter.WriteEndDocument();
                 textWriter.Close();
                 SetIpCallback.Invoke((this.senseListCtrl["Ipaddress"] as SensePanelTextboxItem).Text);
-                this.Dispose();
+                this.Close();
             }
             catch (System.IO.DirectoryNotFoundException)
             {
                 System.IO.Directory.CreateDirectory("\\Application Data\\XBMC_Remote");
+                menuOK_Click(sender, e);
             }
         }
 

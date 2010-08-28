@@ -43,7 +43,7 @@ namespace XBMC_Remote {
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
-            list<Song> songs = JsonClient.AudioLibrary.GetSongs();
+            List<Song> songs = JsonClient.AudioLibrary.GetSongs();
 
             if (songs == null)
             {
