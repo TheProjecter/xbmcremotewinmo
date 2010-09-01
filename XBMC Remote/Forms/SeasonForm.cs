@@ -22,7 +22,7 @@ namespace XBMC_Remote {
         private XbmcConnection JsonClient;
         private new int Show = -1;
         private List<Season> Seasons;
-        public string IpAddress;
+        
         #endregion
 
         #region Constructor
@@ -41,7 +41,7 @@ namespace XBMC_Remote {
 
         #region Events
         private void frmListDemo_Load(object sender, EventArgs e) {
-            JsonClient = new XbmcConnection(IpAddress, 8080, "", "");
+            JsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
 
             // set the list scroll fluidness
             this.senseListCtrl.MinimumMovement = 25;
@@ -56,10 +56,12 @@ namespace XBMC_Remote {
 
             foreach (Season s in Seasons)
             {
+                var episodes = JsonClient.VideoLibrary.GetEpisodes(Show, s._Season, new string[] { });
+                episodes.Count.ToString();
                 StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem(s._Season.ToString());
                 itm.ButtonAnimation = this._buttonAnimation;
                 itm.PrimaryText = s.Label;
-                itm.SecondaryText = s.Rating.ToString();
+                itm.SecondaryText = episodes.Count.ToString() + "Episodes";
                 itm.Tag = s._Season;
                 IImage thumbImage = Functions.GetTvSeasonThumbnail(JsonClient, s.Thumbnail);
                 ImageInfo info;
@@ -68,7 +70,6 @@ namespace XBMC_Remote {
                 itm.Height = (int)(info.Height);
 
                 thumbImage = null;
-                info = null;
 
                 itm.OnClick += new SensePanelItem.ClickEventHandler(OnClickGeneric);
                 this.senseListCtrl.AddItem(itm);
@@ -80,7 +81,6 @@ namespace XBMC_Remote {
 
         void OnClickGeneric(object Sender) {
             EpisodeForm EpisodeForm = new EpisodeForm(Show, (int)(Sender as SensePanelItem).Tag);
-            EpisodeForm.IpAddress = IpAddress;
             EpisodeForm.Show();
         }
 
@@ -94,6 +94,7 @@ namespace XBMC_Remote {
 
         private void menuBack_Click(object sender, EventArgs e)
         {
+            this.senseListCtrl.ScrollIntoView(senseListCtrl[1]);
             this.Close();
         }
         #endregion

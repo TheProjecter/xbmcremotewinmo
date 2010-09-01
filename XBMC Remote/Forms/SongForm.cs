@@ -23,7 +23,7 @@ namespace XBMC_Remote {
         private int? artistId;
         private XbmcConnection JsonClient;
         private List<Song> Songs;
-        public string IpAddress;
+        
         #endregion
 
         #region Constructor
@@ -49,7 +49,7 @@ namespace XBMC_Remote {
 
         #region Events
         private void frmListDemo_Load(object sender, EventArgs e) {
-            JsonClient = new XbmcConnection(IpAddress, 8080, "", "");
+            JsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
 
             // set the list scroll fluidness
             this.senseListCtrl.MinimumMovement = 15;
@@ -105,6 +105,7 @@ namespace XBMC_Remote {
 
         private void menuBack_Click(object sender, EventArgs e)
         {
+            this.senseListCtrl.ScrollIntoView(senseListCtrl[1]);
             this.Close();
         }
         #endregion

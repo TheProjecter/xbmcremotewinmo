@@ -12,7 +12,7 @@ namespace XBMC_Remote
 {
     public partial class RemoteForm : Form
     {
-        public string IpAddress;
+        
 
         EventClient RemoteClient = new EventClient();
 
@@ -29,7 +29,7 @@ namespace XBMC_Remote
 
         private void InitializeCommunication()
         {
-            RemoteClient.Connect(IpAddress).ToString();
+            RemoteClient.Connect(App.Configuration.IpAddress);
         }
 
         private void butUp_Click(object sender, EventArgs e)

@@ -22,7 +22,7 @@ namespace XBMC_Remote {
         private XbmcConnection JsonClient;
         private int Genre;
         private List<Artist> Artists;
-        public string IpAddress;
+        
         #endregion
 
         #region Constructor
@@ -45,7 +45,7 @@ namespace XBMC_Remote {
 
         #region Events
         private void frmListDemo_Load(object sender, EventArgs e) {
-            JsonClient = new XbmcConnection(IpAddress, 8080, "", "");
+            JsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
 
             // set the list scroll fluidness
             this.senseListCtrl.MinimumMovement = 25;
@@ -80,7 +80,6 @@ namespace XBMC_Remote {
 
         void OnClickGeneric(object Sender) {
             AlbumForm AlbumForm = new AlbumForm((int)(Sender as SensePanelItem).Tag);
-            AlbumForm.IpAddress = IpAddress;
             AlbumForm.Show();
         }
 
@@ -94,6 +93,7 @@ namespace XBMC_Remote {
 
         private void menuBack_Click(object sender, EventArgs e)
         {
+            this.senseListCtrl.ScrollIntoView(senseListCtrl[1]);
             this.Close();
         }
 

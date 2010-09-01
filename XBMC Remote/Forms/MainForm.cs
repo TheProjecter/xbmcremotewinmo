@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Xml;
 
 using XbmcEventClient;
+using XbmcJson;
 
 using Microsoft.Drawing;
 
@@ -20,6 +21,9 @@ using StedySoft.SenseSDK.Localization;
 
 using Microsoft.WindowsMobile.PocketOutlook;
 using Microsoft.WindowsMobile.PocketOutlook.MessageInterception;
+
+using OpenNETCF.Net;
+using OpenNETCF.Net.NetworkInformation;
 
 namespace XBMC_Remote
 {
@@ -31,10 +35,11 @@ namespace XBMC_Remote
     public partial class MainForm : Form
     {
         #region Declarations
-        private string IpAddress, Caller;
+        private string Caller;
 
         private bool _buttonAnimation = true;
-        private EventClient MainClient = new EventClient();
+        private EventClient MainEventClient = new EventClient();
+        private XbmcJson.XbmcConnection MainJsonClient;
 
         private System.Windows.Forms.Timer backgroundTimer = new System.Windows.Forms.Timer();
 
@@ -47,7 +52,6 @@ namespace XBMC_Remote
         public MainForm()
         {
             InitializeComponent();
-            InitializeSettings();
         }
 
         #endregion
@@ -61,7 +65,7 @@ namespace XBMC_Remote
         private IImage _getIImageFromResource(string resource)
         {
             IImage iimg;
-            
+
             using (MemoryStream strm = (MemoryStream)Assembly.GetExecutingAssembly().GetManifestResourceStream("XBMC_Remote.Resources." + resource + ".png"))
             {
                 (ImagingFactory.GetImaging()).CreateImageFromBuffer(strm.GetBuffer(), (uint)strm.Length, BufferDisposalFlag.BufferDisposalFlagNone, out iimg);
@@ -80,6 +84,9 @@ namespace XBMC_Remote
             msgWin.Text = "NewSMSWatcher";
             msgWin.OnNewTextMessage += new NewMsgWindow.NewTextMessageEventHandler(OnSmsReceived);
 
+            // erase the json-log
+            XbmcJson.DebugLog.EraseLog();
+
             // setup the timer
             backgroundTimer.Tick += new EventHandler(backgroundTimer_Tick);
             backgroundTimer.Interval = 500;
@@ -89,7 +96,7 @@ namespace XBMC_Remote
             this.senseListCtrl.ThreadSleep = 75;
             this.senseListCtrl.Velocity = .99f;
             this.senseListCtrl.Springback = .35f;
-          
+
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
@@ -115,35 +122,43 @@ namespace XBMC_Remote
 
         void OnClickGeneric(object Sender)
         {
-            switch ((Sender as SensePanelItem).PrimaryText.Split(' ')[0].ToLower())
+            MainJsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
+
+            if (MainJsonClient.Status.IsConnected == true)
             {
-                case "music":
-                    MusicForm MusicForm = new MusicForm();
-                    MusicForm.IpAddress = IpAddress;
-                    MusicForm.Show();
-                    break;
-                case "movies":
-                    MovieForm MovieForm = new MovieForm();
-                    MovieForm.IpAddress = IpAddress;
-                    MovieForm.Show();
-                    break;
-                case "tv":
-                    TvForm TvForm = new TvForm();
-                    TvForm.IpAddress = IpAddress;
-                    TvForm.Show();
-                    break;
-                case "pictures":
-                    break;
-                case "now":
-                    NowPlayingForm NowPlayingForm = new NowPlayingForm();
-                    NowPlayingForm.IpAddress = IpAddress;
-                    NowPlayingForm.Show();
-                    break;
-                case "remote":
-                    RemoteForm RemoteForm = new RemoteForm();
-                    RemoteForm.IpAddress = IpAddress;
-                    RemoteForm.Show();
-                    break;
+                Cursor.Current = Cursors.WaitCursor;
+                Cursor.Show();
+                switch ((Sender as SensePanelItem).PrimaryText.Split(' ')[0].ToLower())
+                {
+                    case "music":
+                        MusicForm MusicForm = new MusicForm();
+                        MusicForm.Show();
+                        break;
+                    case "movies":
+                        MovieForm MovieForm = new MovieForm();
+                        MovieForm.Show();
+                        break;
+                    case "tv":
+                        TvForm TvForm = new TvForm();
+                        TvForm.Show();
+                        break;
+                    case "pictures":
+                        break;
+                    case "now":
+                        NowPlayingForm NowPlayingForm = new NowPlayingForm();
+                        NowPlayingForm.Show();
+                        break;
+                    case "remote":
+                        RemoteForm RemoteForm = new RemoteForm();
+                        RemoteForm.Show();
+                        break;
+                }
+                Cursor.Current = Cursors.Default;
+                Cursor.Hide();
+            }
+            else
+            {
+                SenseAPIs.SenseMessageBox.Show("Could not connect! Please check your settings", "Error", SenseMessageBoxButtons.OK);
             }
         }
 
@@ -161,16 +176,16 @@ namespace XBMC_Remote
         {
             if (menuConnect.Text == "Connect")
             {
-                MainClient.Connect(IpAddress);
-                if (MainClient.Connected.Equals(true))
+                MainEventClient.Connect(App.Configuration.IpAddress);
+                if (MainEventClient.Connected.Equals(true))
                 {
-                    MainClient.SendHelo("XBMC Remote for WinMo", XbmcEventClient.IconType.ICON_NONE, null);
+                    MainEventClient.SendHelo("XBMC Remote for WinMo", XbmcEventClient.IconType.ICON_NONE, null);
                     menuConnect.Text = "Disconnect";
                     backgroundTimer.Enabled = true;
                 }
                 else
                 {
-                    MessageBox.Show("Error connecting to XBMC server at " + IpAddress);
+                    MessageBox.Show("Error connecting to XBMC server at " + App.Configuration.IpAddress);
                     menuConnect.Text = "Connect";
                 }
             }
@@ -184,14 +199,12 @@ namespace XBMC_Remote
         private void menuOptions_Click(object sender, EventArgs e)
         {
             SettingsForm SettingsForm = new SettingsForm();
-            SettingsForm.pIPAdress = IpAddress;
-            SettingsForm.SetIpCallback = new SetIpDelegate(this.SetIpCallbackFn);
             SettingsForm.Show();
         }
 
         private void menuExit_Click(object sender, EventArgs e)
         {
-            MainClient.Disconnect();
+            MainEventClient.Disconnect();
             this.Close();
         }
 
@@ -207,15 +220,15 @@ namespace XBMC_Remote
                 {
                     Caller = Microsoft.WindowsMobile.Status.SystemState.PhoneIncomingCallerNumber;
                 }
-                MainClient.SendButton("pause", "R1", ButtonFlagsType.BTN_DOWN | ButtonFlagsType.BTN_NO_REPEAT);
-                MainClient.SendNotification("Incoming Call", Caller, IconType.ICON_NONE, null);
+                MainEventClient.SendButton("pause", "R1", ButtonFlagsType.BTN_DOWN | ButtonFlagsType.BTN_NO_REPEAT);
+                MainEventClient.SendNotification("Incoming Call", Caller, IconType.ICON_NONE, null);
                 while (Microsoft.WindowsMobile.Status.SystemState.PhoneIncomingCall != false)
                 {
                 }
                 while (Microsoft.WindowsMobile.Status.SystemState.PhoneCallTalking != false)
                 {
                 }
-                MainClient.SendButton("play", "R1", ButtonFlagsType.BTN_DOWN | ButtonFlagsType.BTN_NO_REPEAT);
+                MainEventClient.SendButton("play", "R1", ButtonFlagsType.BTN_DOWN | ButtonFlagsType.BTN_NO_REPEAT);
             }
         }
 
@@ -244,7 +257,7 @@ namespace XBMC_Remote
                     contact.MobileTelephoneNumber = sender;
                 }
             }
-            MainClient.SendNotification("Incoming message from " + contact.FirstName, messageText, IconType.ICON_NONE, null);
+            MainEventClient.SendNotification("Incoming message from " + contact.FirstName, messageText, IconType.ICON_NONE, null);
             contact.Delete();
             return true;
         }
@@ -268,30 +281,6 @@ namespace XBMC_Remote
             string num2 = NormalizePhoneNumber(s2);
             return num1.Substring(Math.Max(0, num1.Length - 7)) ==
                    num2.Substring(Math.Max(0, num2.Length - 7));
-        }
-        #endregion
-
-        #region Functions
-        private void InitializeSettings()
-        {
-            try
-            {
-                XmlTextReader settingsReader = new XmlTextReader("\\Application Data\\XBMC_Remote\\settings.xml");
-                IpAddress = settingsReader.ReadElementString("IpAddress");
-                settingsReader.Close();
-            }
-            catch
-            {
-                Directory.CreateDirectory("\\Application Data\\XBMC_Remote");
-                Directory.CreateDirectory("\\Application Data\\XBMC_Remote\\cache");
-            }
-        }
-        #endregion
-
-        #region Callbacks
-        private void SetIpCallbackFn(string Ip)
-        {
-            IpAddress = Ip;
         }
         #endregion
     }

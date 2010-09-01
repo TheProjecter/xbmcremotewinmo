@@ -21,7 +21,7 @@ namespace XBMC_Remote {
         private bool _buttonAnimation = true;
         private XbmcConnection JsonClient;
         private List<TvShow> TvShows;
-        public string IpAddress;
+        
         #endregion
 
         #region Constructor
@@ -39,7 +39,7 @@ namespace XBMC_Remote {
 
         #region Events
         private void frmListDemo_Load(object sender, EventArgs e) {
-            JsonClient = new XbmcConnection(IpAddress, 8080, "", "");
+            JsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
 
             // set the list scroll fluidness
             this.senseListCtrl.MinimumMovement = 25;
@@ -71,7 +71,6 @@ namespace XBMC_Remote {
                 
                 itm.Image = iimg;
                 itm.ImageSize = new Size((int)(imageinfo.Width), (int)(imageinfo.Height));
-                imageinfo = null;
                 iimg = null;
                 itm.ButtonAnimation = this._buttonAnimation;
                 itm.Height = (int)(imageinfo.Height);
@@ -89,11 +88,11 @@ namespace XBMC_Remote {
 
         void OnClickGeneric(object Sender) {
             SeasonForm SeasonForm = new SeasonForm((int)(Sender as SenseSDKExtended.SensePanelPictureBox.Style1).Tag);
-            SeasonForm.IpAddress = IpAddress;
             SeasonForm.Show();
         }
 
         void frmListDemo_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+            this.senseListCtrl.ScrollList(1);
             this.senseListCtrl.Clear();
         }
 
@@ -103,6 +102,7 @@ namespace XBMC_Remote {
 
         private void menuBack_Click(object sender, EventArgs e)
         {
+            this.senseListCtrl.ScrollIntoView(senseListCtrl[1]);
             this.Close();
         }
         #endregion

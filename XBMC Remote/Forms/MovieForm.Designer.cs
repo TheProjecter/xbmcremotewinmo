@@ -84,6 +84,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.senseListCtrl);
             this.Controls.Add(this.senseHeaderCtrl);
+            this.KeyPreview = true;
             this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu;
             this.MinimizeBox = false;
@@ -93,6 +94,7 @@
             this.Load += new System.EventHandler(this.frmListDemo_Load);
             this.Closed += new System.EventHandler(this.frmListDemo_Closed);
             this.Closing += new System.ComponentModel.CancelEventHandler(this.frmListDemo_Closing);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MovieForm_KeyPress);
             this.ResumeLayout(false);
 
         }

@@ -24,7 +24,7 @@ namespace XBMC_Remote
         private XbmcConnection JsonClient;
         private string CurrentSong;
         
-        public string IpAddress;
+        
 
         public NowPlayingForm()
         {
@@ -33,12 +33,13 @@ namespace XBMC_Remote
 
         private void InitializeTimer()
         {
-            EventClient.Connect(IpAddress);
-            JsonClient = new XbmcConnection(IpAddress, 8080, "", "");
+            EventClient.Connect(App.Configuration.IpAddress);
+            JsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
+
+            RefreshNowPlaying();
 
             updateTimer = new System.Windows.Forms.Timer();
-            int seconds = 1;
-            updateTimer.Interval = 1000 * seconds; // 1000 * n where n == seconds 
+            updateTimer.Interval = 1000;
             updateTimer.Tick += new EventHandler(updateTimer_Tick);
             updateTimer.Enabled = true;
         } 
@@ -92,6 +93,11 @@ namespace XBMC_Remote
             {
                 PlaylistItem NowPlaying = JsonClient.VideoPlaylist.GetCurrentItemAllFields();
 
+                if (NowPlaying == null)
+                {
+                    return;
+                }
+
                 npArtist.Text = NowPlaying.Genre;
                 npTitle.Text = NowPlaying.Title;
                 npAlbum.Text = NowPlaying.Year.ToString();
@@ -112,6 +118,13 @@ namespace XBMC_Remote
                 {
                     NowPlayingImage.Image = JsonClient.Files.GetImageFromThumbnail(NowPlaying.Thumbnail);
                 }
+            }
+            else
+            {
+                npTitle.Text = "";
+                npArtist.Text = "Nothing";
+                npAlbum.Text = "";
+                npRuntime.Text = "";
             }
         } 
  

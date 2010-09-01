@@ -21,7 +21,7 @@ namespace XBMC_Remote {
         private bool _buttonAnimation = true;
         private XbmcConnection JsonClient;
         private List<Movie> Movies;
-        public string IpAddress;
+        
         #endregion
 
         #region Constructor
@@ -38,7 +38,7 @@ namespace XBMC_Remote {
 
         #region Events
         private void frmListDemo_Load(object sender, EventArgs e) {
-            JsonClient = new XbmcConnection(IpAddress, 8080, "", "");
+            JsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
             
             // set the list scroll fluidness
             this.senseListCtrl.MinimumMovement = 25;
@@ -74,10 +74,6 @@ namespace XBMC_Remote {
 
             // we are done so turn on UI updating
             this.senseListCtrl.EndUpdate();
-
-            // enable Tap n' Hold & auto SIP for SensePanelTextboxItem(s)
-            SIP.Enable(this.senseListCtrl.Handle);
-            this.sip.EnabledChanged += new EventHandler(sip_EnabledChanged);
         }
 
         void OnClickGeneric(object Sender) {
@@ -85,10 +81,7 @@ namespace XBMC_Remote {
         }
 
         void frmListDemo_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
-            if (this.senseListCtrl.ScrollList(1))
-            {
-                this.senseListCtrl.Clear();
-            }
+            this.senseListCtrl.Clear();
         }
 
         void frmListDemo_Closed(object sender, System.EventArgs e) {
@@ -97,7 +90,18 @@ namespace XBMC_Remote {
 
         private void menuBack_Click(object sender, EventArgs e)
         {
+            this.senseListCtrl.ScrollIntoView(senseListCtrl[1]);
             this.Close();
+        }
+
+        private void MovieForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Movie found = Movies.Find(delegate(Movie m) { return (m.Label.Substring(0, 1).ToLower() == e.KeyChar.ToString()); });
+            if (found != null)
+            {
+                this.senseListCtrl.ScrollIntoView(senseListCtrl[found._id.ToString()]);
+                this.sip.Enabled = false;
+            }
         }
         #endregion
     }

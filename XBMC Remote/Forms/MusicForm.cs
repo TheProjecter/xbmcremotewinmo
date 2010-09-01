@@ -20,7 +20,7 @@ namespace XBMC_Remote {
         #region Declarations
         private bool _buttonAnimation = true;
         private XbmcConnection JsonClient;
-        public string IpAddress;
+        
         #endregion
 
         #region Constructor
@@ -32,7 +32,7 @@ namespace XBMC_Remote {
 
         #region Events
         private void frmListDemo_Load(object sender, EventArgs e) {
-            JsonClient = new XbmcConnection(IpAddress, 8080, "", "");
+            JsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
 
             // set the list scroll fluidness
             this.senseListCtrl.MinimumMovement = 25;
@@ -43,9 +43,9 @@ namespace XBMC_Remote {
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
-            List<Song> songs = JsonClient.AudioLibrary.GetSongs();
+            List<Song> Songs = JsonClient.AudioLibrary.GetSongs();
 
-            if (songs == null)
+            if (Songs == null)
             {
                 if (SenseAPIs.SenseMessageBox.Show("There is no music in your library", "Error", SenseMessageBoxButtons.OK) == DialogResult.OK)
                 {
@@ -79,14 +79,12 @@ namespace XBMC_Remote {
                 case "By Artist":
                     {
                         ArtistForm ArtistForm = new ArtistForm();
-                        ArtistForm.IpAddress = IpAddress;
                         ArtistForm.Show();
                     }
                     break;
                 case "By Album":
                     {
                         AlbumForm AlbumForm = new AlbumForm();
-                        AlbumForm.IpAddress = IpAddress;
                         AlbumForm.Show();
                     }
                     break;
@@ -103,6 +101,7 @@ namespace XBMC_Remote {
 
         private void menuBack_Click(object sender, EventArgs e)
         {
+            this.senseListCtrl.ScrollIntoView(senseListCtrl[1]);
             this.Close();
         }
         #endregion

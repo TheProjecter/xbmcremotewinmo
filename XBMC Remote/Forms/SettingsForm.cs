@@ -18,11 +18,6 @@ namespace XBMC_Remote
 {
     public partial class SettingsForm : Form
     {
-        #region Declarations
-        public string pIPAdress;
-        public SetIpDelegate SetIpCallback;
-        #endregion
-
         #region Private Methods
         private bool _isVGA()
         {
@@ -52,34 +47,79 @@ namespace XBMC_Remote
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
-            StedySoft.SenseSDK.SensePanelTextboxItem TbItm = new StedySoft.SenseSDK.SensePanelTextboxItem("Ipaddress");
-            TbItm.LabelWidth = 25;
+            StedySoft.SenseSDK.SensePanelTextboxItem TbItm = new StedySoft.SenseSDK.SensePanelTextboxItem("IpAddress");
+            TbItm.LabelWidth = 40;
             TbItm.LayoutSytle = SenseTexboxLayoutStyle.Horizontal;
             TbItm.ShowSeparator = true;
             TbItm.LabelText = "Ip address:";
             TbItm.MaxLength = 15;
-            TbItm.Text = pIPAdress;
+            TbItm.Text = App.Configuration.IpAddress;
             TbItm.GotFocus += new EventHandler(TbItm_GotFocus);
             TbItm.LostFocus += new EventHandler(TbItm_LostFocus);
             this.senseListCtrl.AddItem(TbItm);
 
-            StedySoft.SenseSDK.SensePanelDividerItem div = new StedySoft.SenseSDK.SensePanelDividerItem();
+            StedySoft.SenseSDK.SensePanelTextboxItem MeItm = new StedySoft.SenseSDK.SensePanelTextboxItem("WebPort");
+            MeItm.LabelWidth = 40;
+            MeItm.LayoutSytle = SenseTexboxLayoutStyle.Horizontal;
+            MeItm.ShowSeparator = true;
+            MeItm.LabelText = "Web Port:";
+            MeItm.MaxLength = 5;
+            MeItm.Text = App.Configuration.WebPort;
+            MeItm.GotFocus += new EventHandler(TbItm_GotFocus);
+            MeItm.LostFocus += new EventHandler(TbItm_LostFocus);
+            this.senseListCtrl.AddItem(MeItm);
+
+            StedySoft.SenseSDK.SensePanelTextboxItem TbItm2 = new StedySoft.SenseSDK.SensePanelTextboxItem("Username");
+            TbItm2.LabelWidth = 40;
+            TbItm2.LayoutSytle = SenseTexboxLayoutStyle.Horizontal;
+            TbItm2.ShowSeparator = true;
+            TbItm2.LabelText = "Username:";
+            TbItm2.MaxLength = 25;
+            TbItm2.Text = App.Configuration.Username;
+            TbItm2.GotFocus += new EventHandler(TbItm_GotFocus);
+            TbItm2.LostFocus += new EventHandler(TbItm_LostFocus);
+            this.senseListCtrl.AddItem(TbItm2);
+
+            StedySoft.SenseSDK.SensePanelTextboxItem TbItm3 = new StedySoft.SenseSDK.SensePanelTextboxItem("Password");
+            TbItm3.LabelWidth = 40;
+            TbItm3.LayoutSytle = SenseTexboxLayoutStyle.Horizontal;
+            TbItm3.ShowSeparator = true;
+            TbItm3.LabelText = "Password:";
+            TbItm3.MaxLength = 25;
+            TbItm3.Text = App.Configuration.Password;
+            TbItm3.GotFocus += new EventHandler(TbItm_GotFocus);
+            TbItm3.LostFocus += new EventHandler(TbItm_LostFocus);
+            this.senseListCtrl.AddItem(TbItm3);
+
+            StedySoft.SenseSDK.SensePanelTextboxItem TbItm4 = new StedySoft.SenseSDK.SensePanelTextboxItem("Timeout");
+            TbItm4.LabelWidth = 40;
+            TbItm4.LayoutSytle = SenseTexboxLayoutStyle.Horizontal;
+            TbItm4.ShowSeparator = true;
+            TbItm4.LabelText = "Custom timeout (power users only):";
+            TbItm4.MaxLength = 25;
+            TbItm4.Text = App.Configuration.Timeout;
+            TbItm4.GotFocus += new EventHandler(TbItm_GotFocus);
+            TbItm4.LostFocus += new EventHandler(TbItm_LostFocus);
+            this.senseListCtrl.AddItem(TbItm4);
+
+            /*StedySoft.SenseSDK.SensePanelDividerItem div = new StedySoft.SenseSDK.SensePanelDividerItem();
             div.Name = "Warning! These functions will reboot your device";
             this.senseListCtrl.AddItem(div);
 
             StedySoft.SenseSDK.SensePanelButtonItem butItm = new StedySoft.SenseSDK.SensePanelButtonItem("Install MsgInterceptor Hack");
             butItm.ShowSeparator = true;
-            butItm.Text = "Install MsgInceptor Hack";
+            butItm.Text = "Install MsgInterceptor Hack";
             butItm.Height = 100;
             butItm.OnClick += new SensePanelButtonItem.ClickEventHandler(butItm_OnClick);
             this.senseListCtrl.AddItem(butItm);
 
             StedySoft.SenseSDK.SensePanelButtonItem butItm2 = new StedySoft.SenseSDK.SensePanelButtonItem("Remove MsgInterceptor Hack");
             butItm2.ShowSeparator = true;
-            butItm2.Text = "Remove MsgInceptor Hack";
+            butItm2.Text = "Remove MsgInterceptor Hack";
             butItm2.Height = 100;
             butItm2.OnClick += new SensePanelButtonItem.ClickEventHandler(butItm2_OnClick);
             this.senseListCtrl.AddItem(butItm2);
+            */
 
             this.senseListCtrl.EndUpdate();
         }
@@ -108,28 +148,18 @@ namespace XBMC_Remote
 
         private void menuOK_Click(object sender, EventArgs e)
         {
-            try
-            {
-                XmlTextWriter textWriter = new XmlTextWriter("\\Application Data\\XBMC_Remote\\settings.xml", null);
-                textWriter.WriteStartDocument();
-                textWriter.WriteComment("XBMC Remote settings file.");
-                textWriter.WriteStartElement("IpAddress");
-                textWriter.WriteString((this.senseListCtrl["Ipaddress"] as SensePanelTextboxItem).Text);
-                textWriter.WriteEndElement();
-                textWriter.WriteEndDocument();
-                textWriter.Close();
-                SetIpCallback.Invoke((this.senseListCtrl["Ipaddress"] as SensePanelTextboxItem).Text);
-                this.Close();
-            }
-            catch (System.IO.DirectoryNotFoundException)
-            {
-                System.IO.Directory.CreateDirectory("\\Application Data\\XBMC_Remote");
-                menuOK_Click(sender, e);
-            }
+            App.Configuration.IpAddress = (senseListCtrl["IpAddress"] as SensePanelTextboxItem).Text;
+            App.Configuration.WebPort = (senseListCtrl["WebPort"] as SensePanelTextboxItem).Text;
+            App.Configuration.Username = (senseListCtrl["Username"] as SensePanelTextboxItem).Text;
+            App.Configuration.Password = (senseListCtrl["Password"] as SensePanelTextboxItem).Text;
+            App.Configuration.Timeout = (senseListCtrl["Timeout"] as SensePanelTextboxItem).Text;
+            App.Configuration.WriteSettings();
+            this.Close();
         }
 
         private void menuCancel_Click(object sender, EventArgs e)
         {
+            this.senseListCtrl.ScrollIntoView(senseListCtrl[1]);
             this.Close();
         }
 
