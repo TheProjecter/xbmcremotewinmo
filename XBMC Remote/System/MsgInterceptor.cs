@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace XBMC_Remote
 {
-    class MsgInterceptor
+    class MsgInterceptorSetup
     {
         // GUID of RTRule.dll. Must match with actual declaration in the file
         private string CLSID_RT = "{708C1547-D4AB-49d2-94D0-988431784506}";
@@ -48,8 +48,6 @@ namespace XBMC_Remote
                 }
 
                 r.Close();
-
-                ResetUnit();
             }
 
             RegistryKey r2 = Registry.ClassesRoot.CreateSubKey("\\CLSID\\" + CLSID_RT + "\\InprocServer32");
@@ -68,8 +66,6 @@ namespace XBMC_Remote
                 }
 
                 r2.Close();
-
-                ResetUnit();
             }
         }
 
@@ -109,8 +105,6 @@ namespace XBMC_Remote
 
             if (r2 != null)
                 r2.Close();
-
-            ResetUnit();
         }
 
         /// <summary>

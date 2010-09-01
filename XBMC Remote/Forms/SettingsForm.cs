@@ -102,7 +102,7 @@ namespace XBMC_Remote
             TbItm4.LostFocus += new EventHandler(TbItm_LostFocus);
             this.senseListCtrl.AddItem(TbItm4);
 
-            /*StedySoft.SenseSDK.SensePanelDividerItem div = new StedySoft.SenseSDK.SensePanelDividerItem();
+            StedySoft.SenseSDK.SensePanelDividerItem div = new StedySoft.SenseSDK.SensePanelDividerItem();
             div.Name = "Warning! These functions will reboot your device";
             this.senseListCtrl.AddItem(div);
 
@@ -119,21 +119,22 @@ namespace XBMC_Remote
             butItm2.Height = 100;
             butItm2.OnClick += new SensePanelButtonItem.ClickEventHandler(butItm2_OnClick);
             this.senseListCtrl.AddItem(butItm2);
-            */
 
             this.senseListCtrl.EndUpdate();
         }
 
         void butItm_OnClick(object Sender)
         {
-            MsgInterceptor msgI = new MsgInterceptor();
+            MsgInterceptorSetup msgI = new MsgInterceptorSetup();
             msgI.CreateInterceptorMethod2();
+            msgI.ResetUnit();
         }
 
         void butItm2_OnClick(object Sender)
         {
-            MsgInterceptor msgI = new MsgInterceptor();
+            MsgInterceptorSetup msgI = new MsgInterceptorSetup();
             msgI.RemoveInterceptorMethod2();
+            msgI.ResetUnit();
         }
 
         void TbItm_GotFocus(object sender, EventArgs e)
