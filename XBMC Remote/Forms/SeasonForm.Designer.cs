@@ -91,9 +91,9 @@
             this.Name = "SeasonForm";
             this.Text = "Albums";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmListDemo_Load);
-            this.Closed += new System.EventHandler(this.frmListDemo_Closed);
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.frmListDemo_Closing);
+            this.Load += new System.EventHandler(this.SeasonForm_Load);
+            this.Closed += new System.EventHandler(this.SeasonForm_Closed);
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.SeasonForm_Closing);
             this.ResumeLayout(false);
 
         }

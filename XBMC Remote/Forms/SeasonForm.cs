@@ -1,25 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
-using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
-
-using XbmcJson;
-
 using Microsoft.Drawing;
-
 using StedySoft.SenseSDK;
-using StedySoft.SenseSDK.DrawingCE;
-using StedySoft.SenseSDK.Localization;
+using XbmcJson;
 
 namespace XBMC_Remote {
     public partial class SeasonForm : Form {
 
         #region Declarations
-        private bool _buttonAnimation = true;
         private XbmcConnection JsonClient;
+
         private new int Show = -1;
         private List<Season> Seasons;
         
@@ -33,22 +24,16 @@ namespace XBMC_Remote {
         }
         #endregion
 
-        #region Private Methods
-        private bool _isVGA() {
-            return StedySoft.SenseSDK.DrawingCE.Resolution.ScreenIsVGA;
-        }
-        #endregion
-
         #region Events
-        private void frmListDemo_Load(object sender, EventArgs e) {
+        private void SeasonForm_Load(object sender, EventArgs e) {
             JsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
 
             // set the list scroll fluidness
-            this.senseListCtrl.MinimumMovement = 25;
-            this.senseListCtrl.ThreadSleep = 75;
-            this.senseListCtrl.Velocity = .99f;
-            this.senseListCtrl.Springback = .35f;
-          
+            this.senseListCtrl.MinimumMovement = App.Configuration.MinimumMovement;
+            this.senseListCtrl.ThreadSleep = App.Configuration.ThreadSleep;
+            this.senseListCtrl.Velocity = App.Configuration.Velocity;
+            this.senseListCtrl.Springback = App.Configuration.Springback;
+
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
@@ -56,21 +41,19 @@ namespace XBMC_Remote {
 
             foreach (Season s in Seasons)
             {
-                var episodes = JsonClient.VideoLibrary.GetEpisodes(Show, s._Season, new string[] { });
-                episodes.Count.ToString();
+                var episodes = JsonClient.VideoLibrary.GetEpisodes(Show, s._Season);
+
                 StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem(s._Season.ToString());
-                itm.ButtonAnimation = this._buttonAnimation;
+                itm.ButtonAnimation = true;
                 itm.PrimaryText = s.Label;
-                itm.SecondaryText = episodes.Count.ToString() + "Episodes";
+                itm.SecondaryText = episodes.Count.ToString() + " episodes";
                 itm.Tag = s._Season;
                 IImage thumbImage = Functions.GetTvSeasonThumbnail(JsonClient, s.Thumbnail);
                 ImageInfo info;
                 thumbImage.GetImageInfo(out info);
                 itm.IThumbnail = thumbImage;
                 itm.Height = (int)(info.Height);
-
                 thumbImage = null;
-
                 itm.OnClick += new SensePanelItem.ClickEventHandler(OnClickGeneric);
                 this.senseListCtrl.AddItem(itm);
             }
@@ -84,17 +67,17 @@ namespace XBMC_Remote {
             EpisodeForm.Show();
         }
 
-        void frmListDemo_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+        void SeasonForm_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+            this.senseListCtrl.ScrollIntoView(senseListCtrl[0]);
             this.senseListCtrl.Clear();
         }
 
-        void frmListDemo_Closed(object sender, System.EventArgs e) {
+        void SeasonForm_Closed(object sender, System.EventArgs e) {
             this.senseListCtrl.Dispose();
         }
 
         private void menuBack_Click(object sender, EventArgs e)
         {
-            this.senseListCtrl.ScrollIntoView(senseListCtrl[1]);
             this.Close();
         }
         #endregion

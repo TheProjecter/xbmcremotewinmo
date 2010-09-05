@@ -91,9 +91,9 @@
             this.Name = "ArtistForm";
             this.Text = "Artists";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmListDemo_Load);
-            this.Closed += new System.EventHandler(this.frmListDemo_Closed);
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.frmListDemo_Closing);
+            this.Load += new System.EventHandler(this.ArtistForm_Load);
+            this.Closed += new System.EventHandler(this.ArtistForm_Closed);
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.ArtistForm_Closing);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ArtistForm_KeyPress);
             this.ResumeLayout(false);
 

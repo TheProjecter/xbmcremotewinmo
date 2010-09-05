@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
-using System.Text;
+using StedySoft.SenseSDK;
+using Microsoft.Drawing;
 
 namespace XBMC_Remote
 {
@@ -33,7 +35,7 @@ namespace XBMC_Remote
 
         protected override void OnClick(EventArgs e)
         {
-            //base.OnClick(e);
+            base.OnClick(e);
         }
 
 

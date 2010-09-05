@@ -1,27 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Globalization;
-using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
-
-using XbmcJson;
-
 using Microsoft.Drawing;
-
 using StedySoft.SenseSDK;
 using StedySoft.SenseSDK.DrawingCE;
-using StedySoft.SenseSDK.Localization;
+using XbmcJson;
 
 namespace XBMC_Remote {
     public partial class TvForm : Form {
 
         #region Declarations
-        private bool _buttonAnimation = true;
         private XbmcConnection JsonClient;
+
         private List<TvShow> TvShows;
-        
         #endregion
 
         #region Constructor
@@ -31,21 +23,15 @@ namespace XBMC_Remote {
         }
         #endregion
 
-        #region Private Methods
-        private bool _isVGA() {
-            return StedySoft.SenseSDK.DrawingCE.Resolution.ScreenIsVGA;
-        }
-        #endregion
-
         #region Events
-        private void frmListDemo_Load(object sender, EventArgs e) {
+        private void TvForm_Load(object sender, EventArgs e) {
             JsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
 
             // set the list scroll fluidness
-            this.senseListCtrl.MinimumMovement = 25;
-            this.senseListCtrl.ThreadSleep = 75;
-            this.senseListCtrl.Velocity = .99f;
-            this.senseListCtrl.Springback = .35f;
+            this.senseListCtrl.MinimumMovement = App.Configuration.MinimumMovement;
+            this.senseListCtrl.ThreadSleep = App.Configuration.ThreadSleep;
+            this.senseListCtrl.Velocity = App.Configuration.Velocity;
+            this.senseListCtrl.Springback = App.Configuration.Springback;
           
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
@@ -72,7 +58,7 @@ namespace XBMC_Remote {
                 itm.Image = iimg;
                 itm.ImageSize = new Size((int)(imageinfo.Width), (int)(imageinfo.Height));
                 iimg = null;
-                itm.ButtonAnimation = this._buttonAnimation;
+                itm.ButtonAnimation = true;
                 itm.Height = (int)(imageinfo.Height);
                 itm.Tag = t._id;
                 itm.OnClick += new SenseSDKExtended.SensePanelPictureBox.Style1.ClickEventHandler(OnClickGeneric);
@@ -81,9 +67,6 @@ namespace XBMC_Remote {
 
             // we are done so turn on UI updating
             this.senseListCtrl.EndUpdate();
-
-            // enable Tap n' Hold & auto SIP for SensePanelTextboxItem(s)
-            SIP.Enable(this.senseListCtrl.Handle);
         }
 
         void OnClickGeneric(object Sender) {
@@ -91,18 +74,17 @@ namespace XBMC_Remote {
             SeasonForm.Show();
         }
 
-        void frmListDemo_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
-            this.senseListCtrl.ScrollList(1);
+        void TvForm_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+            this.senseListCtrl.ScrollIntoView(senseListCtrl[0]);
             this.senseListCtrl.Clear();
         }
 
-        void frmListDemo_Closed(object sender, System.EventArgs e) {
+        void TvForm_Closed(object sender, System.EventArgs e) {
             this.senseListCtrl.Dispose();
         }
 
         private void menuBack_Click(object sender, EventArgs e)
         {
-            this.senseListCtrl.ScrollIntoView(senseListCtrl[1]);
             this.Close();
         }
         #endregion

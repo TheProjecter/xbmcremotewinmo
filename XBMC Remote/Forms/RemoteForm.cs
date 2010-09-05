@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using XbmcEventClient;
 
@@ -12,8 +6,6 @@ namespace XBMC_Remote
 {
     public partial class RemoteForm : Form
     {
-        
-
         EventClient RemoteClient = new EventClient();
 
         public RemoteForm()
@@ -25,7 +17,6 @@ namespace XBMC_Remote
         {
             InitializeCommunication();
         }
-
 
         private void InitializeCommunication()
         {

@@ -1,26 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
-using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
-
-using XbmcJson;
-
-using Microsoft.Drawing;
-
 using StedySoft.SenseSDK;
 using StedySoft.SenseSDK.DrawingCE;
-using StedySoft.SenseSDK.Localization;
+using XbmcJson;
 
 namespace XBMC_Remote {
     public partial class MusicForm : Form {
 
         #region Declarations
-        private bool _buttonAnimation = true;
         private XbmcConnection JsonClient;
-        
         #endregion
 
         #region Constructor
@@ -31,14 +20,14 @@ namespace XBMC_Remote {
         #endregion
 
         #region Events
-        private void frmListDemo_Load(object sender, EventArgs e) {
+        private void MusicForm_Load(object sender, EventArgs e) {
             JsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
 
             // set the list scroll fluidness
-            this.senseListCtrl.MinimumMovement = 25;
-            this.senseListCtrl.ThreadSleep = 75;
-            this.senseListCtrl.Velocity = .99f;
-            this.senseListCtrl.Springback = .35f;
+            this.senseListCtrl.MinimumMovement = App.Configuration.MinimumMovement;
+            this.senseListCtrl.ThreadSleep = App.Configuration.ThreadSleep;
+            this.senseListCtrl.Velocity = App.Configuration.Velocity;
+            this.senseListCtrl.Springback = App.Configuration.Springback;
           
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
@@ -58,7 +47,7 @@ namespace XBMC_Remote {
             foreach (string Label in list)
             {
                 StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem();
-                itm.ButtonAnimation = this._buttonAnimation;
+                itm.ButtonAnimation = true;
                 itm.PrimaryText = Label;
                 itm.OnClick += new SensePanelItem.ClickEventHandler(OnClickGeneric);
                 this.senseListCtrl.AddItem(itm);
@@ -91,17 +80,17 @@ namespace XBMC_Remote {
             }
         }
 
-        void frmListDemo_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+        void MusicForm_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+            this.senseListCtrl.ScrollIntoView(senseListCtrl[0]);
             this.senseListCtrl.Clear();
         }
 
-        void frmListDemo_Closed(object sender, System.EventArgs e) {
+        void MusicForm_Closed(object sender, System.EventArgs e) {
             this.senseListCtrl.Dispose();
         }
 
         private void menuBack_Click(object sender, EventArgs e)
         {
-            this.senseListCtrl.ScrollIntoView(senseListCtrl[1]);
             this.Close();
         }
         #endregion

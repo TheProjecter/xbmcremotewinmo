@@ -25,6 +25,12 @@ namespace XBMC_Remote
         public string Password;
         public string Timeout;
 
+        public int MinimumMovement = 25;
+        public int ThreadSleep = 75;
+        public float Velocity = .99f;
+        public float Springback = .35f;
+
+
         public Settings()
         {
             ReadSettings();

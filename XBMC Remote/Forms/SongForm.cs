@@ -1,61 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
-using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
-
-using XbmcJson;
-
-using Microsoft.Drawing;
-
 using StedySoft.SenseSDK;
-using StedySoft.SenseSDK.DrawingCE;
-using StedySoft.SenseSDK.Localization;
+using XbmcJson;
 
 namespace XBMC_Remote {
     public partial class SongForm : Form {
 
         #region Declarations
-        private bool _buttonAnimation = true;
+        private XbmcConnection JsonClient;
+
         private int? albumId;
         private int? artistId;
-        private XbmcConnection JsonClient;
         private List<Song> Songs;
-        
         #endregion
 
         #region Constructor
         public SongForm(int albumid)
         {
-            albumId = albumid;
             InitializeComponent();
+            albumId = albumid;
         }
 
         public SongForm(int artistid, int albumid)
         {
+            InitializeComponent();
             artistId = artistid;
             albumId = albumid;
-            InitializeComponent();
-        }
-        #endregion
-
-        #region Private Methods
-        private bool _isVGA() {
-            return StedySoft.SenseSDK.DrawingCE.Resolution.ScreenIsVGA;
         }
         #endregion
 
         #region Events
-        private void frmListDemo_Load(object sender, EventArgs e) {
+        private void SongForm_Load(object sender, EventArgs e) {
             JsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
 
             // set the list scroll fluidness
-            this.senseListCtrl.MinimumMovement = 15;
-            this.senseListCtrl.ThreadSleep = 100;
-            this.senseListCtrl.Velocity = .99f;
-            this.senseListCtrl.Springback = .35f;
+            this.senseListCtrl.MinimumMovement = App.Configuration.MinimumMovement;
+            this.senseListCtrl.ThreadSleep = App.Configuration.ThreadSleep;
+            this.senseListCtrl.Velocity = App.Configuration.Velocity;
+            this.senseListCtrl.Springback = App.Configuration.Springback;
           
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
@@ -75,7 +58,7 @@ namespace XBMC_Remote {
             foreach (Song s in Songs)
             {
                 StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem(s._id.ToString());
-                itm.ButtonAnimation = this._buttonAnimation;
+                itm.ButtonAnimation = true;
                 itm.PrimaryText = s.Label;
                 
                 itm.SecondaryText = s.Artist;
@@ -86,26 +69,27 @@ namespace XBMC_Remote {
 
             // we are done so turn on UI updating
             this.senseListCtrl.EndUpdate();
-
-            // enable Tap n' Hold & auto SIP for SensePanelTextboxItem(s)
-            SIP.Enable(this.senseListCtrl.Handle);
         }
 
         void OnClickGeneric(object Sender) {
-            JsonClient.Control.PlaySong((int)(Sender as SensePanelItem).Tag); 
+            JsonClient.Control.PlaySong((int)(Sender as SensePanelItem).Tag);
+            NowPlayingForm NowPlayingForm = new NowPlayingForm();
+            NowPlayingForm.Show();
         }
 
-        void frmListDemo_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+        void SongForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.senseListCtrl.ScrollIntoView(senseListCtrl[0]);
             this.senseListCtrl.Clear();
         }
 
-        void frmListDemo_Closed(object sender, System.EventArgs e) {
+        void SongForm_Closed(object sender, System.EventArgs e)
+        {
             this.senseListCtrl.Dispose();
         }
 
         private void menuBack_Click(object sender, EventArgs e)
         {
-            this.senseListCtrl.ScrollIntoView(senseListCtrl[1]);
             this.Close();
         }
         #endregion

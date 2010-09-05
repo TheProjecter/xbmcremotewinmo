@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Net;
-using System.Text;
 using System.Windows.Forms;
-using System.Threading;
-
-using Microsoft.WindowsCE.Forms;
 
 using XbmcEventClient;
 using XbmcJson;
@@ -19,23 +10,25 @@ namespace XBMC_Remote
 {
     public partial class NowPlayingForm : Form
     {
+        #region Declarations
         private EventClient EventClient = new EventClient();
-        private System.Windows.Forms.Timer updateTimer;
         private XbmcConnection JsonClient;
-        private string CurrentSong;
-        
-        
 
+        private System.Windows.Forms.Timer updateTimer;
+
+        private string CurrentSong;
+        #endregion
+
+        #region Constructor
         public NowPlayingForm()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void InitializeTimer()
         {
-            EventClient.Connect(App.Configuration.IpAddress);
-            JsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
-
             RefreshNowPlaying();
 
             updateTimer = new System.Windows.Forms.Timer();
@@ -46,6 +39,9 @@ namespace XBMC_Remote
 
         private void NowPlayingForm_Load(object sender, EventArgs e)
         {
+            JsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
+            EventClient.Connect(App.Configuration.IpAddress);
+
             InitializeTimer();
         }
         
@@ -174,5 +170,6 @@ namespace XBMC_Remote
         {
             this.Close();
         }
+        #endregion
     }
 }

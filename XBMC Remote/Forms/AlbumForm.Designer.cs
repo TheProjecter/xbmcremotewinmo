@@ -91,9 +91,9 @@
             this.Name = "AlbumForm";
             this.Text = "Albums";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmListDemo_Load);
-            this.Closed += new System.EventHandler(this.frmListDemo_Closed);
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.frmListDemo_Closing);
+            this.Load += new System.EventHandler(this.AlbumForm_load);
+            this.Closed += new System.EventHandler(this.AlbumForm_Closed);
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.AlbumForm_Closing);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AlbumForm_KeyPress);
             this.ResumeLayout(false);
 

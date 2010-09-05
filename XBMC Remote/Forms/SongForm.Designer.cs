@@ -90,9 +90,9 @@
             this.Name = "SongForm";
             this.Text = "Music";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmListDemo_Load);
-            this.Closed += new System.EventHandler(this.frmListDemo_Closed);
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.frmListDemo_Closing);
+            this.Load += new System.EventHandler(this.SongForm_Load);
+            this.Closed += new System.EventHandler(this.SongForm_Closed);
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.SongForm_Closing);
             this.ResumeLayout(false);
 
         }

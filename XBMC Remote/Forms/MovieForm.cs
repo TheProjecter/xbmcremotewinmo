@@ -1,27 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
-
-using XbmcJson;
-
 using Microsoft.Drawing;
-
 using StedySoft.SenseSDK;
 using StedySoft.SenseSDK.DrawingCE;
-using StedySoft.SenseSDK.Localization;
+using XbmcJson;
 
 namespace XBMC_Remote {
     public partial class MovieForm : Form {
 
         #region Declarations
-        private bool _buttonAnimation = true;
         private XbmcConnection JsonClient;
+
         private List<Movie> Movies;
-        
         #endregion
 
         #region Constructor
@@ -31,25 +24,32 @@ namespace XBMC_Remote {
         #endregion
 
         #region Private Methods
-        private bool _isVGA() {
-            return StedySoft.SenseSDK.DrawingCE.Resolution.ScreenIsVGA;
+        private IImage _getIImageFromResource(string resource)
+        {
+            IImage iimg;
+
+            using (MemoryStream strm = (MemoryStream)Assembly.GetExecutingAssembly().GetManifestResourceStream("XBMC_Remote.Resources." + resource + ".png"))
+            {
+                (ImagingFactory.GetImaging()).CreateImageFromBuffer(strm.GetBuffer(), (uint)strm.Length, BufferDisposalFlag.BufferDisposalFlagNone, out iimg);
+            }
+            return iimg;
         }
         #endregion
 
         #region Events
-        private void frmListDemo_Load(object sender, EventArgs e) {
+        private void MovieForm_Load(object sender, EventArgs e) {
             JsonClient = new XbmcConnection(App.Configuration.IpAddress, Convert.ToInt32(App.Configuration.WebPort), App.Configuration.Username, App.Configuration.Password);
             
             // set the list scroll fluidness
-            this.senseListCtrl.MinimumMovement = 25;
-            this.senseListCtrl.ThreadSleep = 75;
-            this.senseListCtrl.Velocity = .99f;
-            this.senseListCtrl.Springback = .35f;
+            this.senseListCtrl.MinimumMovement = App.Configuration.MinimumMovement;
+            this.senseListCtrl.ThreadSleep = App.Configuration.ThreadSleep;
+            this.senseListCtrl.Velocity = App.Configuration.Velocity;
+            this.senseListCtrl.Springback = App.Configuration.Springback;
 
             // turn off UI updating
             this.senseListCtrl.BeginUpdate();
 
-            Movies = JsonClient.VideoLibrary.GetMovies();
+            Movies = JsonClient.VideoLibrary.GetMovies(new string[] { "movieid" });
 
             if (Movies == null)
             {
@@ -59,38 +59,42 @@ namespace XBMC_Remote {
                 }
             }
 
-            // add SensePanelItem(s) w/thumbnail image
             foreach (Movie m in Movies)
             {
-                StedySoft.SenseSDK.SensePanelItem itm = new StedySoft.SenseSDK.SensePanelItem(m._id.ToString());
-
-                itm.ButtonAnimation = this._buttonAnimation;
+                MyPanelItem1 itm = new MyPanelItem1(m._id.ToString());
+                itm.JsonClient = JsonClient;
+                itm.ButtonAnimation = true;
                 itm.PrimaryText = m.Label;
                 itm.Tag = m._id;
-                //itm.Thumbnail = JsonClient.Files.GetImageFromThumbnail(m.Thumbnail);
-                itm.OnClick += new SensePanelItem.ClickEventHandler(OnClickGeneric);
+                itm.ThumbnailUrl = m.Thumbnail;
+                //itm.Thumbnail = Functions.GetMovieThumbnail(JsonClient, m.Thumbnail);
+                itm.Height = 225;
+                itm.OnClick += new MyPanelItem1.ClickEventHandler(itm_OnClick);
                 this.senseListCtrl.AddItem(itm);
             }
-
             // we are done so turn on UI updating
             this.senseListCtrl.EndUpdate();
         }
 
-        void OnClickGeneric(object Sender) {
-            JsonClient.Control.PlayMovie((int)(Sender as SensePanelItem).Tag); 
+        void itm_OnClick(object sender)
+        {
+            JsonClient.Control.PlayMovie((int)(sender as MyPanelItem1).Tag);
+            NowPlayingForm NowPlayingForm = new NowPlayingForm();
+            NowPlayingForm.Show();
         }
 
-        void frmListDemo_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+        void MovieForm_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+            this.senseListCtrl.ScrollIntoView(senseListCtrl[0]);
             this.senseListCtrl.Clear();
         }
 
-        void frmListDemo_Closed(object sender, System.EventArgs e) {
+        void MovieForm_Closed(object sender, System.EventArgs e)
+        {
             this.senseListCtrl.Dispose();
         }
 
         private void menuBack_Click(object sender, EventArgs e)
         {
-            this.senseListCtrl.ScrollIntoView(senseListCtrl[1]);
             this.Close();
         }
 

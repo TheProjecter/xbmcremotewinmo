@@ -91,9 +91,9 @@
             this.Name = "MovieForm";
             this.Text = "Movies";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmListDemo_Load);
-            this.Closed += new System.EventHandler(this.frmListDemo_Closed);
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.frmListDemo_Closing);
+            this.Load += new System.EventHandler(this.MovieForm_Load);
+            this.Closed += new System.EventHandler(this.MovieForm_Closed);
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.MovieForm_Closing);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MovieForm_KeyPress);
             this.ResumeLayout(false);
 

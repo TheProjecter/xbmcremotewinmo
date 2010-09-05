@@ -7,9 +7,9 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-/// <summary>
-/// Watch out for Win32 messaging from RTRule.dll which tells us when there is a new incoming text message
-/// </summary>
+    /// <summary>
+    /// Watch out for Win32 messaging from RTRule.dll which tells us when there is a new incoming text message
+    /// </summary>
 public class NewMsgWindow : MessageWindow
 {
     /// <summary>
@@ -46,7 +46,7 @@ public class NewMsgWindow : MessageWindow
                 {
                     // a LRESULT of 1 marks message as processed. 
                     // and native msg app will not show msg in Inbox
-                    m.Result = new IntPtr(1);
+                    m.Result = new IntPtr(0);
                 }
                 else
                     // Other LRESULT indicates we did not process the message

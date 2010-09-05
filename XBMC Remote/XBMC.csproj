@@ -49,37 +49,25 @@
   <ItemGroup>
     <Reference Include="Microsoft.Windowsce.Forms" />
     <Reference Include="Microsoft.WindowsMobile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.WindowsMobile.PocketOutlook, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.WindowsMobile.PocketOutlook, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.WindowsMobile.Status, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib" />
-    <Reference Include="OpenNETCF.Net, Version=2.3.0.39, Culture=neutral, PublicKeyToken=e60dbea84bb431b7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Smart Device Framework\Bin\OpenNETCF.Net.dll</HintPath>
-    </Reference>
-    <Reference Include="SenseSDK.Resources.QVGA, Version=1.38.3809.23995, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Sense UI SDK\Bin\SenseSDK.Resources.QVGA.dll</HintPath>
-    </Reference>
-    <Reference Include="SenseSDK.Resources.VGA, Version=1.38.3809.24006, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Sense UI SDK\Bin\SenseSDK.Resources.VGA.dll</HintPath>
-    </Reference>
-    <Reference Include="SenseSDKExtended, Version=0.2.813.1402, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\SenseSDK.v1.39\Sense UI SDK\ex\SourceCode\SenseSDKExtended\bin\Release\SenseSDKExtended.dll</HintPath>
-    </Reference>
-    <Reference Include="SenseSDKExtended.Resources.QVGA, Version=1.0.813.505, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Sense UI SDK\SourceCode\SenseSDKExtended.Resources.QVGA\bin\Release\SenseSDKExtended.Resources.QVGA.dll</HintPath>
-    </Reference>
-    <Reference Include="StedySoft.SenseSDK, Version=1.39.3814.15624, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\SenseSDK.v1.39\Sense UI SDK\Bin\StedySoft.SenseSDK.dll</HintPath>
-    </Reference>
+    <Reference Include="OpenNETCF, Version=2.3.0.39, Culture=neutral, PublicKeyToken=e60dbea84bb431b7, processorArchitecture=MSIL" />
+    <Reference Include="SenseSDK.Resources.QVGA, Version=1.38.3809.23995, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SenseSDK.Resources.VGA, Version=1.38.3809.24006, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SenseSDKExtended, Version=0.2.813.1402, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SenseSDKExtended.Resources.QVGA, Version=1.0.813.505, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SenseSDKExtended.Resources.VGA, Version=1.0.813.504, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="StedySoft.SenseSDK, Version=1.39.3814.15624, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -210,7 +198,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="System\Functions.cs" />
-    <Compile Include="System\MsgInterceptor.cs" />
+    <Compile Include="System\MyPanelItem1.cs" />
     <Compile Include="System\NewMsgWindow.cs" />
     <Compile Include="System\SettingsHolder.cs">
       <SubType>Code</SubType>
@@ -258,6 +246,37 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Dependencies\OpenNETCF.AppSettings.dll" />
+    <None Include="Dependencies\OpenNETCF.Configuration.dll" />
+    <None Include="Dependencies\OpenNETCF.Core.dll" />
+    <None Include="Dependencies\OpenNETCF.Data.dll" />
+    <None Include="Dependencies\OpenNETCF.dll" />
+    <None Include="Dependencies\OpenNETCF.Drawing.dll" />
+    <None Include="Dependencies\OpenNETCF.Net.dll" />
+    <None Include="Dependencies\OpenNETCF.Net.Mail.dll" />
+    <None Include="Dependencies\OpenNETCF.Phone.dll" />
+    <None Include="Dependencies\OpenNETCF.PocketPC.asmmeta.dll" />
+    <None Include="Dependencies\OpenNETCF.Rss.dll" />
+    <None Include="Dependencies\OpenNETCF.VisualBasic.dll" />
+    <None Include="Dependencies\OpenNETCF.Windows.Forms.dll" />
+    <None Include="Dependencies\OpenNETCF.Windows.Forms.PocketPC.asmmeta.dll" />
+    <None Include="Dependencies\OpenNETCF.Windows.Forms.Smartphone.asmmeta.dll" />
+    <None Include="Dependencies\OpenNETCF.Windows.Forms.WindowsCE.asmmeta.dll" />
+    <None Include="Dependencies\OpenNETCF.WindowsCE.dll" />
+    <None Include="Dependencies\OpenNETCF.WindowsCE.Messaging.dll" />
+    <None Include="Dependencies\OpenNETCF.WindowsCE.Services.dll" />
+    <None Include="Dependencies\OpenNETCF.WindowsMobile.dll" />
+    <None Include="Dependencies\OpenNETCF.WindowsMobile.PocketPC.asmmeta.dll" />
+    <None Include="Dependencies\OpenNETCF.WindowsMobile.Smartphone.asmmeta.dll" />
+    <None Include="Dependencies\OpenNETCF.WindowsMobile.WindowsCE.asmmeta.dll" />
+    <Content Include="Dependencies\RTRule.dll">
+    </Content>
+    <None Include="Dependencies\SenseSDK.Resources.QVGA.dll" />
+    <None Include="Dependencies\SenseSDK.Resources.VGA.dll" />
+    <None Include="Dependencies\SenseSDKExtended.dll" />
+    <None Include="Dependencies\SenseSDKExtended.Resources.QVGA.dll" />
+    <None Include="Dependencies\SenseSDKExtended.Resources.VGA.dll" />
+    <None Include="Dependencies\StedySoft.SenseSDK.dll" />
     <Content Include="XBMC2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />

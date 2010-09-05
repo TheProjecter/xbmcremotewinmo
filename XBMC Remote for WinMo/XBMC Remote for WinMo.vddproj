@@ -14,6 +14,18 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_002D6FFFAB0ACE90DBD673A496E909FA"
+        "OwnerKey" = "8:_FCAF61AAC9C00A757962EA42BF372B12"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_002D6FFFAB0ACE90DBD673A496E909FA"
+        "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_00C08C5DF336929AAF339135B14E97BC"
         "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
         "MsmSig" = "8:_UNDEFINED"
@@ -32,20 +44,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0CEAE02385251B18D4D20E40770E6279"
-        "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_0CEAE02385251B18D4D20E40770E6279"
-        "OwnerKey" = "8:_75B417FDE1A92F90DB9F8B88AB3D2DCD"
+        "MsmKey" = "8:_0F40C5F6A57568C062C59F9A48D70AE4"
+        "OwnerKey" = "8:_20028E6E142F2768ED4526413D19CCAD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_0F40C5F6A57568C062C59F9A48D70AE4"
-        "OwnerKey" = "8:_20028E6E142F2768ED4526413D19CCAD"
+        "OwnerKey" = "8:_FCAF61AAC9C00A757962EA42BF372B12"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -63,6 +69,30 @@
         "Entry"
         {
         "MsmKey" = "8:_124CF21A381DC9F29C41FAF4A010B38A"
+        "OwnerKey" = "8:_002D6FFFAB0ACE90DBD673A496E909FA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_124CF21A381DC9F29C41FAF4A010B38A"
+        "OwnerKey" = "8:_90A48B810B3D2C92A29220992DE538C9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_124CF21A381DC9F29C41FAF4A010B38A"
+        "OwnerKey" = "8:_F0B424ACEF0CEEFE8F91E478E3833251"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_124CF21A381DC9F29C41FAF4A010B38A"
+        "OwnerKey" = "8:_FCAF61AAC9C00A757962EA42BF372B12"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_124CF21A381DC9F29C41FAF4A010B38A"
         "OwnerKey" = "8:_684A2BDE44368AA7F241BC05B46DE883"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -70,18 +100,6 @@
         {
         "MsmKey" = "8:_124CF21A381DC9F29C41FAF4A010B38A"
         "OwnerKey" = "8:_E2ED41EBEFE5946CCF07CB064D93324C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_124CF21A381DC9F29C41FAF4A010B38A"
-        "OwnerKey" = "8:_75B417FDE1A92F90DB9F8B88AB3D2DCD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_124CF21A381DC9F29C41FAF4A010B38A"
-        "OwnerKey" = "8:_30ED28162E31443E55EDD7B7B6B6B6AE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -147,7 +165,19 @@
         "Entry"
         {
         "MsmKey" = "8:_20028E6E142F2768ED4526413D19CCAD"
-        "OwnerKey" = "8:_30ED28162E31443E55EDD7B7B6B6B6AE"
+        "OwnerKey" = "8:_90A48B810B3D2C92A29220992DE538C9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_20028E6E142F2768ED4526413D19CCAD"
+        "OwnerKey" = "8:_F0B424ACEF0CEEFE8F91E478E3833251"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_20028E6E142F2768ED4526413D19CCAD"
+        "OwnerKey" = "8:_FCAF61AAC9C00A757962EA42BF372B12"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -170,7 +200,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_30ED28162E31443E55EDD7B7B6B6B6AE"
+        "MsmKey" = "8:_40F1E3E4BE725280496A40C70D50F284"
+        "OwnerKey" = "8:_4324228DC8363163C9BCA5DD14F50375"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_40F1E3E4BE725280496A40C70D50F284"
         "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -182,8 +218,56 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_4324228DC8363163C9BCA5DD14F50375"
+        "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4645C840375244958B25013A28381C2C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_46D6100E46E73E0FBBFB32B159E5CDA0"
         "OwnerKey" = "8:_0F40C5F6A57568C062C59F9A48D70AE4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_46D6100E46E73E0FBBFB32B159E5CDA0"
+        "OwnerKey" = "8:_002D6FFFAB0ACE90DBD673A496E909FA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_46D6100E46E73E0FBBFB32B159E5CDA0"
+        "OwnerKey" = "8:_90A48B810B3D2C92A29220992DE538C9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_46D6100E46E73E0FBBFB32B159E5CDA0"
+        "OwnerKey" = "8:_F0B424ACEF0CEEFE8F91E478E3833251"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_46D6100E46E73E0FBBFB32B159E5CDA0"
+        "OwnerKey" = "8:_FCAF61AAC9C00A757962EA42BF372B12"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_46D6100E46E73E0FBBFB32B159E5CDA0"
+        "OwnerKey" = "8:_A1B0867ED9961CD2E8AF4D2639DD39DC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_46D6100E46E73E0FBBFB32B159E5CDA0"
+        "OwnerKey" = "8:_8EEF3D97781FE64ACC617E7F8CA6DE84"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -196,30 +280,6 @@
         {
         "MsmKey" = "8:_46D6100E46E73E0FBBFB32B159E5CDA0"
         "OwnerKey" = "8:_E2ED41EBEFE5946CCF07CB064D93324C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_46D6100E46E73E0FBBFB32B159E5CDA0"
-        "OwnerKey" = "8:_75B417FDE1A92F90DB9F8B88AB3D2DCD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_46D6100E46E73E0FBBFB32B159E5CDA0"
-        "OwnerKey" = "8:_30ED28162E31443E55EDD7B7B6B6B6AE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_46D6100E46E73E0FBBFB32B159E5CDA0"
-        "OwnerKey" = "8:_A65EBEAFB5B31291B948883DDDEBD558"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_46D6100E46E73E0FBBFB32B159E5CDA0"
-        "OwnerKey" = "8:_0CEAE02385251B18D4D20E40770E6279"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -284,6 +344,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_4AE5C25558E23E50DFE934898249205B"
+        "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4AE5C25558E23E50DFE934898249205B"
+        "OwnerKey" = "8:_4324228DC8363163C9BCA5DD14F50375"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5A659D5E7FCD6A188DEC02876C1D994F"
         "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
         "MsmSig" = "8:_UNDEFINED"
@@ -302,14 +374,38 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_75B417FDE1A92F90DB9F8B88AB3D2DCD"
-        "OwnerKey" = "8:_30ED28162E31443E55EDD7B7B6B6B6AE"
+        "MsmKey" = "8:_8EEF3D97781FE64ACC617E7F8CA6DE84"
+        "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_75B417FDE1A92F90DB9F8B88AB3D2DCD"
+        "MsmKey" = "8:_8EEF3D97781FE64ACC617E7F8CA6DE84"
+        "OwnerKey" = "8:_002D6FFFAB0ACE90DBD673A496E909FA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_90A48B810B3D2C92A29220992DE538C9"
+        "OwnerKey" = "8:_FCAF61AAC9C00A757962EA42BF372B12"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_90A48B810B3D2C92A29220992DE538C9"
         "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A1B0867ED9961CD2E8AF4D2639DD39DC"
+        "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A1B0867ED9961CD2E8AF4D2639DD39DC"
+        "OwnerKey" = "8:_002D6FFFAB0ACE90DBD673A496E909FA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -321,13 +417,13 @@
         "Entry"
         {
         "MsmKey" = "8:_A368C8E7818E214080049A99E11BF680"
-        "OwnerKey" = "8:_E2ED41EBEFE5946CCF07CB064D93324C"
+        "OwnerKey" = "8:_002D6FFFAB0ACE90DBD673A496E909FA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_A368C8E7818E214080049A99E11BF680"
-        "OwnerKey" = "8:_75B417FDE1A92F90DB9F8B88AB3D2DCD"
+        "OwnerKey" = "8:_E2ED41EBEFE5946CCF07CB064D93324C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -344,18 +440,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A65EBEAFB5B31291B948883DDDEBD558"
-        "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A65EBEAFB5B31291B948883DDDEBD558"
-        "OwnerKey" = "8:_75B417FDE1A92F90DB9F8B88AB3D2DCD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_AFC3181507552DCC3F541A134A17D03D"
         "OwnerKey" = "8:_0F40C5F6A57568C062C59F9A48D70AE4"
         "MsmSig" = "8:_UNDEFINED"
@@ -363,19 +447,19 @@
         "Entry"
         {
         "MsmKey" = "8:_AFC3181507552DCC3F541A134A17D03D"
+        "OwnerKey" = "8:_002D6FFFAB0ACE90DBD673A496E909FA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_AFC3181507552DCC3F541A134A17D03D"
+        "OwnerKey" = "8:_FCAF61AAC9C00A757962EA42BF372B12"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_AFC3181507552DCC3F541A134A17D03D"
         "OwnerKey" = "8:_684A2BDE44368AA7F241BC05B46DE883"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_AFC3181507552DCC3F541A134A17D03D"
-        "OwnerKey" = "8:_75B417FDE1A92F90DB9F8B88AB3D2DCD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_AFC3181507552DCC3F541A134A17D03D"
-        "OwnerKey" = "8:_30ED28162E31443E55EDD7B7B6B6B6AE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -405,13 +489,13 @@
         "Entry"
         {
         "MsmKey" = "8:_BC9B855EE1EC1EDA20F73CC229E1CC17"
-        "OwnerKey" = "8:_E2ED41EBEFE5946CCF07CB064D93324C"
+        "OwnerKey" = "8:_002D6FFFAB0ACE90DBD673A496E909FA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_BC9B855EE1EC1EDA20F73CC229E1CC17"
-        "OwnerKey" = "8:_75B417FDE1A92F90DB9F8B88AB3D2DCD"
+        "OwnerKey" = "8:_E2ED41EBEFE5946CCF07CB064D93324C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -428,6 +512,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C3F47FF0F57715B79DC4E581FB5F0F6F"
+        "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C3F47FF0F57715B79DC4E581FB5F0F6F"
+        "OwnerKey" = "8:_4AE5C25558E23E50DFE934898249205B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_E2ED41EBEFE5946CCF07CB064D93324C"
         "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
         "MsmSig" = "8:_UNDEFINED"
@@ -440,6 +536,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F0B424ACEF0CEEFE8F91E478E3833251"
+        "OwnerKey" = "8:_FCAF61AAC9C00A757962EA42BF372B12"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F0B424ACEF0CEEFE8F91E478E3833251"
+        "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_FAA19268B6E790A10C8D26E87A0E6268"
         "OwnerKey" = "8:_0F40C5F6A57568C062C59F9A48D70AE4"
         "MsmSig" = "8:_UNDEFINED"
@@ -447,13 +555,13 @@
         "Entry"
         {
         "MsmKey" = "8:_FAA19268B6E790A10C8D26E87A0E6268"
-        "OwnerKey" = "8:_75B417FDE1A92F90DB9F8B88AB3D2DCD"
+        "OwnerKey" = "8:_002D6FFFAB0ACE90DBD673A496E909FA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_FAA19268B6E790A10C8D26E87A0E6268"
-        "OwnerKey" = "8:_30ED28162E31443E55EDD7B7B6B6B6AE"
+        "OwnerKey" = "8:_FCAF61AAC9C00A757962EA42BF372B12"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -466,6 +574,12 @@
         {
         "MsmKey" = "8:_FAA19268B6E790A10C8D26E87A0E6268"
         "OwnerKey" = "8:_20028E6E142F2768ED4526413D19CCAD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FCAF61AAC9C00A757962EA42BF372B12"
+        "OwnerKey" = "8:_1522B943FE3E4F83B7EC1D65A518C920"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -500,6 +614,34 @@
     {
         "File"
         {
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_002D6FFFAB0ACE90DBD673A496E909FA"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:StedySoft.SenseSDK, Version=1.39.3814.15624, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_002D6FFFAB0ACE90DBD673A496E909FA"
+                    {
+                    "Name" = "8:StedySoft.SenseSDK.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:StedySoft.SenseSDK.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_0BD7CAF7F15A44A1BA3932B9A49C2378"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_00C08C5DF336929AAF339135B14E97BC"
             {
             "AssemblyIsInGAC" = "11:FALSE"
@@ -525,34 +667,6 @@
             "SharedLegacy" = "11:FALSE"
             "Register" = "3:0"
             "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_0CEAE02385251B18D4D20E40770E6279"
-            {
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SenseSDK.Resources.QVGA, Version=1.38.3809.23995, Culture=neutral"
-                "ScatterAssemblies"
-                {
-                    "_0CEAE02385251B18D4D20E40770E6279"
-                    {
-                    "Name" = "8:SenseSDK.Resources.QVGA.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SenseSDK.Resources.QVGA.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_0BD7CAF7F15A44A1BA3932B9A49C2378"
-            "Condition" = "8:"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "Register" = "3:0"
-            "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -724,19 +838,19 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_30ED28162E31443E55EDD7B7B6B6B6AE"
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_40F1E3E4BE725280496A40C70D50F284"
             {
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SenseSDKExtended, Version=1.0.730.883, Culture=neutral"
+            "AssemblyAsmDisplayName" = "8:OpenNETCF.WindowsCE.Messaging, Version=2.3.0.39, Culture=neutral, PublicKeyToken=e60dbea84bb431b7"
                 "ScatterAssemblies"
                 {
-                    "_30ED28162E31443E55EDD7B7B6B6B6AE"
+                    "_40F1E3E4BE725280496A40C70D50F284"
                     {
-                    "Name" = "8:SenseSDKExtended.dll"
+                    "Name" = "8:OpenNETCF.WindowsCE.Messaging.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:SenseSDKExtended.dll"
+            "SourcePath" = "8:OpenNETCF.WindowsCE.Messaging.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0BD7CAF7F15A44A1BA3932B9A49C2378"
@@ -780,6 +894,52 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_4324228DC8363163C9BCA5DD14F50375"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:OpenNETCF.Net, Version=2.3.0.39, Culture=neutral, PublicKeyToken=e60dbea84bb431b7"
+                "ScatterAssemblies"
+                {
+                    "_4324228DC8363163C9BCA5DD14F50375"
+                    {
+                    "Name" = "8:OpenNETCF.Net.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:OpenNETCF.Net.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_0BD7CAF7F15A44A1BA3932B9A49C2378"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_4645C840375244958B25013A28381C2C"
+            {
+            "SourcePath" = "8:..\\XBMC Remote\\Dependencies\\RTRule.dll"
+            "TargetName" = "8:RTRule.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_FCC6AA356DE644139255C82D2E5B50E2"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_46D6100E46E73E0FBBFB32B159E5CDA0"
             {
             "AssemblyIsInGAC" = "11:FALSE"
@@ -805,6 +965,34 @@
             "SharedLegacy" = "11:FALSE"
             "Register" = "3:0"
             "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_4AE5C25558E23E50DFE934898249205B"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:OpenNETCF, Version=2.3.0.39, Culture=neutral, PublicKeyToken=e60dbea84bb431b7"
+                "ScatterAssemblies"
+                {
+                    "_4AE5C25558E23E50DFE934898249205B"
+                    {
+                    "Name" = "8:OpenNETCF.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:OpenNETCF.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_0BD7CAF7F15A44A1BA3932B9A49C2378"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -864,19 +1052,75 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_75B417FDE1A92F90DB9F8B88AB3D2DCD"
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_8EEF3D97781FE64ACC617E7F8CA6DE84"
             {
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:StedySoft.SenseSDK, Version=1.39.3814.15624, Culture=neutral"
+            "AssemblyAsmDisplayName" = "8:SenseSDK.Resources.QVGA, Version=1.38.3809.23995, Culture=neutral"
                 "ScatterAssemblies"
                 {
-                    "_75B417FDE1A92F90DB9F8B88AB3D2DCD"
+                    "_8EEF3D97781FE64ACC617E7F8CA6DE84"
                     {
-                    "Name" = "8:StedySoft.SenseSDK.dll"
+                    "Name" = "8:SenseSDK.Resources.QVGA.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:StedySoft.SenseSDK.dll"
+            "SourcePath" = "8:SenseSDK.Resources.QVGA.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_0BD7CAF7F15A44A1BA3932B9A49C2378"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_90A48B810B3D2C92A29220992DE538C9"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SenseSDKExtended.Resources.VGA, Version=1.0.813.504, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_90A48B810B3D2C92A29220992DE538C9"
+                    {
+                    "Name" = "8:SenseSDKExtended.Resources.VGA.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SenseSDKExtended.Resources.VGA.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_0BD7CAF7F15A44A1BA3932B9A49C2378"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_A1B0867ED9961CD2E8AF4D2639DD39DC"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SenseSDK.Resources.VGA, Version=1.38.3809.24006, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_A1B0867ED9961CD2E8AF4D2639DD39DC"
+                    {
+                    "Name" = "8:SenseSDK.Resources.VGA.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SenseSDK.Resources.VGA.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0BD7CAF7F15A44A1BA3932B9A49C2378"
@@ -917,34 +1161,6 @@
             "SharedLegacy" = "11:FALSE"
             "Register" = "3:0"
             "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_A65EBEAFB5B31291B948883DDDEBD558"
-            {
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SenseSDK.Resources.VGA, Version=1.38.3809.24006, Culture=neutral"
-                "ScatterAssemblies"
-                {
-                    "_A65EBEAFB5B31291B948883DDDEBD558"
-                    {
-                    "Name" = "8:SenseSDK.Resources.VGA.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SenseSDK.Resources.VGA.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_0BD7CAF7F15A44A1BA3932B9A49C2378"
-            "Condition" = "8:"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "Register" = "3:0"
-            "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -1004,6 +1220,34 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_C3F47FF0F57715B79DC4E581FB5F0F6F"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:OpenNETCF.Configuration, Version=2.3.0.39, Culture=neutral, PublicKeyToken=e60dbea84bb431b7"
+                "ScatterAssemblies"
+                {
+                    "_C3F47FF0F57715B79DC4E581FB5F0F6F"
+                    {
+                    "Name" = "8:OpenNETCF.Configuration.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:OpenNETCF.Configuration.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_0BD7CAF7F15A44A1BA3932B9A49C2378"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_E2ED41EBEFE5946CCF07CB064D93324C"
             {
             "AssemblyIsInGAC" = "11:FALSE"
@@ -1017,6 +1261,34 @@
                     }
                 }
             "SourcePath" = "8:Newtonsoft.Json.Compact.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_0BD7CAF7F15A44A1BA3932B9A49C2378"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_F0B424ACEF0CEEFE8F91E478E3833251"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SenseSDKExtended.Resources.QVGA, Version=1.0.813.505, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_F0B424ACEF0CEEFE8F91E478E3833251"
+                    {
+                    "Name" = "8:SenseSDKExtended.Resources.QVGA.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SenseSDKExtended.Resources.QVGA.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0BD7CAF7F15A44A1BA3932B9A49C2378"
@@ -1060,6 +1332,34 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_FCAF61AAC9C00A757962EA42BF372B12"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SenseSDKExtended, Version=0.2.813.1402, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_FCAF61AAC9C00A757962EA42BF372B12"
+                    {
+                    "Name" = "8:SenseSDKExtended.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SenseSDKExtended.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_0BD7CAF7F15A44A1BA3932B9A49C2378"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
         }
         "Folder"
         {
@@ -1091,6 +1391,15 @@
                 {
                 }
             }
+            "{F6DFDB62-1DD1-498B-89B7-27BAC542EE5A}:_FCC6AA356DE644139255C82D2E5B50E2"
+            {
+            "Name" = "8:#1912"
+            "Condition" = "8:"
+            "Property" = "8:%CE2%"
+                "Folders"
+                {
+                }
+            }
         }
         "Product"
         {
@@ -1100,7 +1409,7 @@
         "OSVersionMin" = "8:4.0"
         "OSVersionMax" = "8:6.99"
         "NoUninstall" = "11:FALSE"
-        "Compress" = "11:FALSE"
+        "Compress" = "11:TRUE"
         "CESetupDLL" = "8:"
         }
         "ProjectOutput"
@@ -1138,6 +1447,79 @@
             {
                 "Keys"
                 {
+                    "{B1EBC968-6B66-4532-A885-748B79AF4477}:_59BBBBF554DE4E91B273FA74A7B58779"
+                    {
+                    "Name" = "8:Software"
+                    "Condition" = "8:"
+                        "Keys"
+                        {
+                            "{B1EBC968-6B66-4532-A885-748B79AF4477}:_DE8830B23ABF4D38A5E1C857649987AF"
+                            {
+                            "Name" = "8:Microsoft"
+                            "Condition" = "8:"
+                                "Keys"
+                                {
+                                    "{B1EBC968-6B66-4532-A885-748B79AF4477}:_002B142F04DE418B89ED7E80EFA40457"
+                                    {
+                                    "Name" = "8:Inbox"
+                                    "Condition" = "8:"
+                                        "Keys"
+                                        {
+                                            "{B1EBC968-6B66-4532-A885-748B79AF4477}:_DC55878189294F1B9AE262CEF7D8AE58"
+                                            {
+                                            "Name" = "8:SVC"
+                                            "Condition" = "8:"
+                                                "Keys"
+                                                {
+                                                    "{B1EBC968-6B66-4532-A885-748B79AF4477}:_B1C396F900C04D76B22D93ACDC2C302E"
+                                                    {
+                                                    "Name" = "8:SMS"
+                                                    "Condition" = "8:"
+                                                        "Keys"
+                                                        {
+                                                            "{B1EBC968-6B66-4532-A885-748B79AF4477}:_5C655C03ACEC488490746921421A6EEE"
+                                                            {
+                                                            "Name" = "8:Rules"
+                                                            "Condition" = "8:"
+                                                                "Keys"
+                                                                {
+                                                                }
+                                                                "Values"
+                                                                {
+                                                                    "{C3684F64-58E2-4092-8E3C-D7483080DE5A}:_BCD642E904BA419E81C7142CF2ACB502"
+                                                                    {
+                                                                    "Name" = "8:{708C1547-D4AB-49d2-94D0-988431784506}"
+                                                                    "Condition" = "8:"
+                                                                    "ValueTypes" = "3:3"
+                                                                    "Value" = "3:1"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        "Values"
+                                                        {
+                                                        }
+                                                    }
+                                                }
+                                                "Values"
+                                                {
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
                 }
             }
             "HKCU"
@@ -1150,6 +1532,46 @@
             {
                 "Keys"
                 {
+                    "{B1EBC968-6B66-4532-A885-748B79AF4477}:_34C6E24ACD0744E6B6F4AC3AC9674B82"
+                    {
+                    "Name" = "8:CLSID"
+                    "Condition" = "8:"
+                        "Keys"
+                        {
+                            "{B1EBC968-6B66-4532-A885-748B79AF4477}:_4000A26E5F7E4489BAB7A2AF608C520F"
+                            {
+                            "Name" = "8:{708C1547-D4AB-49d2-94D0-988431784506}"
+                            "Condition" = "8:"
+                                "Keys"
+                                {
+                                    "{B1EBC968-6B66-4532-A885-748B79AF4477}:_90CE595FEEDF419DB80C1A59D8516A37"
+                                    {
+                                    "Name" = "8:InprocServer32"
+                                    "Condition" = "8:"
+                                        "Keys"
+                                        {
+                                        }
+                                        "Values"
+                                        {
+                                            "{C3684F64-58E2-4092-8E3C-D7483080DE5A}:_EC349C36A622486697F92C8FB2FD7DC3"
+                                            {
+                                            "Name" = "8:Default"
+                                            "Condition" = "8:"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:\\Windows\\RTRule.dll"
+                                            }
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
                 }
             }
             "HKU"
