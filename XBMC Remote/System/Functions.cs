@@ -96,18 +96,6 @@ namespace XBMC_Remote
                 return ResizeImageAndSave(JsonClient, url, 150, 225);
             }
         }
-
-        static public IImage GetMovieThumbnail(XbmcConnection JsonClient, string url)
-        {
-            if (CheckExist(url) == true)
-            {
-                return LoadImageFromDisk(url);
-            }
-            else
-            {
-                return ResizeImageAndSave(JsonClient, url, 150, 225);
-            }
-        }
     }
 
     public static class StorageCardUtils

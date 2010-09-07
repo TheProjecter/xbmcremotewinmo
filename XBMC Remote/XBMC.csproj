@@ -198,7 +198,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="System\Functions.cs" />
-    <Compile Include="System\MyPanelItem1.cs" />
     <Compile Include="System\NewMsgWindow.cs" />
     <Compile Include="System\SettingsHolder.cs">
       <SubType>Code</SubType>

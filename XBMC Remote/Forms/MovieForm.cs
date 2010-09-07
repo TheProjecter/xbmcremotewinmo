@@ -61,15 +61,11 @@ namespace XBMC_Remote {
 
             foreach (Movie m in Movies)
             {
-                MyPanelItem1 itm = new MyPanelItem1(m._id.ToString());
-                itm.JsonClient = JsonClient;
+                SensePanelItem itm = new SensePanelItem(m._id.ToString());
                 itm.ButtonAnimation = true;
                 itm.PrimaryText = m.Label;
                 itm.Tag = m._id;
-                itm.ThumbnailUrl = m.Thumbnail;
-                //itm.Thumbnail = Functions.GetMovieThumbnail(JsonClient, m.Thumbnail);
-                itm.Height = 225;
-                itm.OnClick += new MyPanelItem1.ClickEventHandler(itm_OnClick);
+                itm.OnClick += new SensePanelItem.ClickEventHandler(itm_OnClick);
                 this.senseListCtrl.AddItem(itm);
             }
             // we are done so turn on UI updating
@@ -78,7 +74,7 @@ namespace XBMC_Remote {
 
         void itm_OnClick(object sender)
         {
-            JsonClient.Control.PlayMovie((int)(sender as MyPanelItem1).Tag);
+            JsonClient.Control.PlayMovie((int)(sender as SensePanelItem).Tag);
             NowPlayingForm NowPlayingForm = new NowPlayingForm();
             NowPlayingForm.Show();
         }

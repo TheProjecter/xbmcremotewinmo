@@ -175,10 +175,10 @@ namespace XBMC_Remote
                 if (MainEventClient.Connected.Equals(true))
                 {
                     ShowListItems();
-                    if (connectTimer.Interval != 5000)
+                    if (connectTimer.Interval != 8000)
                         MainEventClient.SendHelo("XBMC Remote for WinMo", XbmcEventClient.IconType.ICON_NONE, null);
                     backgroundTimer.Enabled = true;
-                    connectTimer.Interval = 5000;
+                    connectTimer.Interval = 8000;
                 }
                 else
                     MainEventClient.Connect(App.Configuration.IpAddress);
@@ -192,7 +192,7 @@ namespace XBMC_Remote
                 if (SenseAPIs.SenseMessageBox.Show("Error connecting to XBMC server at " + App.Configuration.IpAddress, "Error", SenseMessageBoxButtons.OK) == DialogResult.OK)
                 {
                     connectTimer.Enabled = true;
-                    connectTimer.Interval = 2000;
+                    connectTimer.Interval = 5000;
                 }
             }
 
